@@ -14,10 +14,32 @@
       <label for="password">Password:</label>
       <input type="password" id="password" required>
       
-      <button type="submit">Log In</button>
+      <button type="submit" >Log In</button>
     </form>
   </div>
 
-  <script src="script.js"></script>
+  <script >
+    document.getElementById("login-form").addEventListener("submit", function(event) {
+    event.preventDefault();
+    
+    var username = document.getElementById("username").value;
+    var password = document.getElementById("password").value;
+    
+    // Perform login process here
+    console.log(username);
+
+    if (username === "client" && password === "password") {
+      
+      alert("Login successful!");
+      window.location.href="Client_home.html";
+      // Redirect to another page or perform other actions
+    } else {
+      alert("Invalid username or password. Please try again.");
+    }
+  });
+
+  </script>
+     
+  
 </body>
 </html>
