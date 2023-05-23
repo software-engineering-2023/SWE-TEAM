@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Report Issue</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      background-color: #f2f2f2;
+    }
+    .container {
+      max-width: 400px;
+      margin: 0 auto;
+      padding: 20px;
+      background-color: #fff;
+      border-radius: 5px;
+      box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    }
+    h2 {
+      text-align: center;
+    }
+    label {
+      display: block;
+      margin-bottom: 5px;
+    }
+    input[type="text"],
+    textarea,
+    select,
+    button {
+      width: 100%;
+      padding: 10px;
+      margin-bottom: 10px;
+      border: 1px solid #ccc;
+      border-radius: 3px;
+      box-sizing: border-box;
+    }
+    textarea {
+      resize: vertical;
+    }
+    button {
+      background-color: #4CAF50;
+      color: #fff;
+      cursor: pointer;
+    }
+    button:hover {
+      background-color: #45a049;
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <h2>Report Issue</h2>
+    <form id="report-issue-form">
+      <label for="name">Name:</label>
+      <input type="text" id="name" required>
+      
+      <label for="email">Email:</label>
+      <input type="email" id="email" required>
+      
+      <label for="subject">Subject:</label>
+      <input type="text" id="subject" required>
+      
+      <label for="issue">Issue:</label>
+      <select id="issue" required>
+        <option value="" selected disabled>Select an Issue</option>
+        <option value="login">Login Problems</option>
+        <option value="account">Account Access Issues</option>
+        <option value="transaction">Transaction Errors</option>
+        <option value="balance">Balance Discrepancies</option>
+        <option value="website">Website Performance Issues</option>
+        <option value="other">Other</option>
+      </select>
+      
+      <label for="description">Issue Description:</label>
+      <textarea id="description" rows="5" required></textarea>
+      
+      <button type="submit">Submit</button>
+    </form>
+  </div>
+</body>
+</html>
