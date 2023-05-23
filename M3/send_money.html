@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html>
 <head>
-  <title>Send Money</title>
+  <title>Transfer Money</title>
   <style>
     body {
       font-family: Arial, sans-serif;
@@ -23,7 +23,6 @@
       margin-bottom: 5px;
     }
     input[type="text"],
-    input[type="email"],
     input[type="number"],
     button {
       width: 100%;
@@ -45,24 +44,19 @@
 </head>
 <body>
   <div class="container">
-    <h2>Send Money</h2>
-    <form id="send-money-form">
-      <label for="sender-name">Sender's Name:</label>
-      <input type="text" id="sender-name" required>
+    <h2>Transfer Money</h2>
+    <form id="transfer-money-form">
+   
+      <label for="recipient-bank-number">Recipient's Bank Number:</label>
+      <input type="text" id="recipient-bank-number" required>
       
-      <label for="sender-email">Sender's Email:</label>
-      <input type="email" id="sender-email" required>
-      
-      <label for="recipient-name">Recipient's Name:</label>
-      <input type="text" id="recipient-name" required>
-      
-      <label for="recipient-email">Recipient's Email:</label>
-      <input type="email" id="recipient-email" required>
+      <label for="recipient-phone">Recipient's Phone Number:</label>
+      <input type="text" id="recipient-phone" required>
       
       <label for="amount">Amount:</label>
       <input type="number" id="amount" min="0" required>
       
-      <button type="submit">Send Money</button>
+      <button type="submit">Transfer</button>
     </form>
   </div>
 </body>
