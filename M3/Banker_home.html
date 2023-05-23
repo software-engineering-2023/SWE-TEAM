@@ -1,0 +1,212 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Homepage</title>
+  <style>
+    /* Basic styles for the navigation drawer */
+    body {
+      margin: 0;
+      padding: 0;
+      font-family: Arial, sans-serif;
+      background-image: url(img/Saving04.jpg);
+      background-size: cover;
+      background-position: top;
+      
+      overflow-y: scroll; 
+    }
+    .button-container {
+      display: flex;
+      justify-content: center;
+    }
+    
+    .button {
+      padding: 10px 20px;
+      background-color:transparent;
+      border: none;
+      color: #333;
+      font-size: 16px;
+      margin-right: 50px; 
+      margin-left: 50px;
+      cursor: pointer;
+      padding: 10px 20px;
+      border-radius: 30px;
+      transition: background-color 0.3s, transform 0.3s;
+      
+ 
+
+ 
+  
+
+  
+  
+    }
+    .navbar {
+      position: fixed;
+      top: 0;
+      left: -250px; /* Initially hidden off the screen */
+      width: 250px;
+      height: 100vh;
+      background-color:#67a381;
+      color: #fff;
+      transition: left 0.3s ease;
+    }
+    
+    .navbar.open {
+      left: 0; /* Slides in from the left when open class is applied */
+    }
+    
+    .navbar ul {
+      list-style-type: none;
+      margin: 0;
+      padding: 0;
+      overflow: hidden;
+    }
+    
+    .navbar li {
+      text-align: left;
+    }
+    
+    .navbar li a {
+      display: block;
+      color: white;
+      padding: 14px 16px;
+      text-decoration: none;
+    }
+    
+    .navbar li a:hover {
+      background-color: #111;
+    }
+    
+    .openbtn {
+      position: fixed;
+      top: 10px;
+      left: 10px;
+      background-color: transparent;
+      color: #111;
+      padding: 10px 15px;
+      font-size: 20px;
+      border: none;
+      cursor: pointer;
+    }
+    
+    .notifications {
+        position: fixed;
+      top: 10px;
+      right: 10px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      width: 10px;
+      height: 10px;
+      background-color: #333;
+      color: #fff;
+      border-radius: 50%;
+      cursor: pointer;
+    }
+    
+    .badge {
+      position: absolute;
+      top: -5px;
+      right: -5px;
+      background-color: red;
+      color: #fff;
+      width: 10px;
+      height: 10px;
+      border-radius: 50%;
+      text-align: center;
+      line-height: 10px;
+      font-size: 8px;
+    }
+    
+    .dropdown {
+      position: absolute;
+      top: 20px;
+      right: 0;
+      width: 200px;
+      background-color: #67a381;
+      border: 1px solid #ddd;
+      border-radius: 4px;
+      display: none;
+      z-index: 1;
+    }
+    
+    .dropdown a {
+      color: white;
+      padding: 12px 16px;
+      text-decoration: none;
+      display: block;
+    }
+    
+     .dropdown a:hover {
+      background-color: black;
+    }
+    
+    .notifications:hover .dropdown {
+      display: block;
+    } 
+    
+     
+    /* Styles for the rest of the page */
+    .content {
+      margin-top: 50px; /* Add margin to accommodate the navbar */
+      padding: 20px;
+    }
+  </style>
+  <script>
+    // JavaScript code to toggle the navigation drawer
+   
+    document.addEventListener('click', function(event) {
+      var navbar = document.getElementById('navbar');
+      var openbtn = document.getElementById('openbtn');
+      
+      if (!navbar.contains(event.target) && event.target !== openbtn) {
+        navbar.classList.remove('open');
+      }
+    });
+    
+    function toggleNavbar() {
+      var navbar = document.getElementById('navbar');
+      navbar.classList.toggle('open');
+    }
+   
+  </script>
+</head>
+<body>
+  <div class="button-container">
+    <button class="button">Contact us</button>
+    <button class="button">About us</button>
+   
+  </div>
+  <div class="notifications" id="notifications">
+    <span class="badge">3</span>
+    <img src="img/bell.png" alt="Notification Bell" style="width: 30px; height: 25px" >
+    <div class="dropdown" id="dropdown">
+      <a href="#">Notification 1</a>
+      <a href="#">Notification 2</a>
+      <a href="#">Notification 3</a>
+    </div>
+  </div>
+  
+  <button id="openbtn" class="openbtn" onclick="toggleNavbar()">&#9776; </button>
+  
+  <div id="navbar" class="navbar">
+    <ul>
+      <li><a href="#">Credit Card Confirmation</a></li>
+      <li><a href="#">Credit Card Replacement</a></li>
+
+      <li><a href="#">Loan Confirmation</a></li>
+      <li><a href="#">Transactions Confirmation</a></li>
+      <li><a href="#">Make Announcement</a></li>
+      
+     
+      <li><a href="#"> Issues </a></li>
+
+    </ul>
+  </div>
+
+  <div class="content">
+    <!-- Rest of your homepage content goes here -->
+    
+  </div>
+</body>
+</html>

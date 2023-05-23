@@ -11,8 +11,9 @@
       background-image: url(img/Saving04.jpg);
       background-size: cover;
       background-position: top;
-      
-      overflow-y: scroll; 
+      justify-content: center;
+      overflow-y: scroll;
+      display: flex; 
     }
     .button-container {
       display: flex;
@@ -75,6 +76,9 @@
     
     .navbar li a:hover {
       background-color: #111;
+      box-shadow: 0px 3px 20px 0px black;
+  transform: scale(1.0);
+
     }
     
     .openbtn {
@@ -139,6 +143,8 @@
     
      .dropdown a:hover {
       background-color: black;
+      box-shadow: 0px 3px 20px 0px black;
+  transform: scale(1.0);
     }
     
     .notifications:hover .dropdown {
@@ -151,6 +157,49 @@
       margin-top: 50px; /* Add margin to accommodate the navbar */
       padding: 20px;
     }
+    .menu-bar {
+  border-radius: 25px;
+  height: -webkit-fit-content;
+  height: -moz-fit-content;
+  height: fit-content;
+  display: inline-flex;
+  background-color: #67a381;
+  -webkit-backdrop-filter: blur(10px);
+  backdrop-filter: blur(10px);
+  align-items: center;
+  padding: 0 10px;
+  margin: 20px 0 0 0;
+}
+.menu-bar li {
+  list-style: none;
+  color: white;
+  font-family: sans-serif;
+  font-weight: bold;
+  padding: 12px 16px;
+  margin: 0 8px;
+  position: relative;
+  cursor: pointer;
+  white-space: nowrap;
+}
+.menu-bar li::before {
+  content: " ";
+  position: absolute;
+  top: 0;
+  left: 0;
+  height: 100%;
+  width: 100%;
+  z-index: -1;
+  transition: 0.2s;
+  border-radius: 25px;
+}
+.menu-bar li:hover {
+  color: white;
+}
+.menu-bar li:hover::before {
+  background: black;
+  box-shadow: 0px 3px 20px 0px black;
+  transform: scale(1.2);
+}
   </style>
   <script>
     // JavaScript code to toggle the navigation drawer
@@ -172,11 +221,14 @@
   </script>
 </head>
 <body>
-  <div class="button-container">
-    <button class="button">Contact us</button>
-    <button class="button">About us</button>
-   
-  </div>
+  <ul class="menu-bar">
+    <li>Home</li>
+    <li>About us</li>
+    <li>Contact us</li>
+    <li>Log out</li>
+    
+  </ul>
+ 
   <div class="notifications" id="notifications">
     <span class="badge">3</span>
     <img src="img/bell.png" alt="Notification Bell" style="width: 30px; height: 25px" >
@@ -194,12 +246,12 @@
       <li><a href="apply_credit.html">Apply For Credit Card</a></li>
       <li><a href="credit_card.html">My Credit Card</a></li>
 
-      <li><a href="#">Loan</a></li>
+      <li><a href="apply_loan.html">Loan</a></li>
       <li><a href="#">Bank Account</a></li>
-      <li><a href="#">Notifications</a></li>
+     
       <li><a href="#">Services</a></li>
-      <li><a href="#">Send Money</a></li>
-      <li><a href="#">Report Issue</a></li>
+      <li><a href="send_money.html">Send Money</a></li>
+      <li><a href="report.html">Report Issue</a></li>
 
     </ul>
   </div>

@@ -10,6 +10,28 @@
   <link rel="stylesheet" href="assets/css/style.css">
   <style>
     /* Basic styles for the navigation drawer */
+    .section {
+      height: fit-content; /* Adjust the height as needed */
+      background-color: #f9f9f9;
+      padding: 0 10px 0 0;
+      text-align: center;
+     
+    
+     
+      width: 100%;
+      
+    }
+    #section2 {
+        height: 1000px;
+        background-image: url(img/Saving04.jpg);
+      background-size: cover;
+      background-position:top;
+      width: 100%;
+      background-repeat: no-repeat;
+      margin-bottom: 250px;
+     
+    }
+    
     .about-section {
       background-color: #f9f9f9;
       padding: 50px 0;
@@ -151,8 +173,11 @@
   -webkit-backdrop-filter: blur(10px);
   backdrop-filter: blur(10px);
   align-items: center;
-  padding: 0 10px;
+  padding: 0 0 0 0;
   margin: 50px 0 0 0;
+  justify-content: flex-start;
+ 
+  
 }
 .menu-bar li {
   list-style: none;
@@ -188,9 +213,8 @@
       margin: 0;
       padding: 0;
       font-family: Arial, sans-serif;
-      background-image: url(img/Saving04.jpg);
-      background-size: cover;
-      background-position: top;
+      align-items: center;
+      flex-direction: column;
       height: 100vh;
       overflow-y: scroll; 
       display: flex;
@@ -355,6 +379,7 @@
   </script>
 </head>
 <body>
+    <div class="section" id="section2">
   <ul class="menu-bar">
     <li>Home</li>
     <li>Contact us</li>
@@ -366,8 +391,8 @@
 
  
   
- 
-
+</div>
+<div class="section">
   <div class="content">
     <section class="about-section">
       <div class="container">
@@ -389,6 +414,8 @@
     </section>
     
   </div>
+</div>
+<div class="section">
   <div class="footer-clean">
     <footer>
         <div class="container">
@@ -424,7 +451,7 @@
         </div>
     </footer>
 </div>
-  
+</div>
   
   
   <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
