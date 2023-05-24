@@ -1,0 +1,135 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Credit Card Requests</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      background-image: linear-gradient(to left, #e28db7, #ebe1fc);
+    }
+    
+    h1 {
+      text-align: center;
+      color: #333;
+    }
+    
+    .requests-container {
+      width: 80%;
+      margin: 20px auto;
+      background-color: #fff;
+      box-shadow: 0 0 20px rgba(0, 0, 0, 0.1);
+      padding: 20px;
+    }
+    
+    table {
+      width: 100%;
+      border-collapse: collapse;
+      margin-top: 20px;
+    }
+    
+    th, td {
+      padding: 10px;
+      text-align: left;
+      border-bottom: 1px solid #ddd;
+    }
+    
+    th {
+      background-color: #f2f2f2;
+      color: #666;
+    }
+    
+    tr:hover {
+      background-color: #f9f9f9;
+    }
+    
+    .button-container {
+      text-align: center;
+      margin-top: 20px;
+    }
+    
+    button {
+      padding: 8px 16px;
+      background-color: #67a381;
+      color: #fff;
+      border: none;
+      cursor: pointer;
+      font-size: 14px;
+      border-radius: 10px;
+    }
+    
+    button:hover {
+      background-color: black;
+    }
+    
+    button:active {
+      background-color: black;
+    }
+    
+   
+  </style>
+  <script>
+    function approveRequest(requestId) {
+      // Perform the approval process for the specific request here
+      
+      // Display the success message or perform any necessary actions
+      displaySuccessMessage("Request with ID: " + requestId + " has been approved.");
+    }
+    
+    function displaySuccessMessage(message) {
+      alert(message);
+    }
+  </script>
+</head>
+<body>
+  <h1>Credit Card Requests</h1>
+  
+  <div class="requests-container">
+    <h2>Requests List</h2>
+    
+    <table>
+      <thead>
+        <tr>
+          <th>ID</th>
+          <th>Client Name</th>
+          <th>Amount</th>
+          <th>Action</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td>1</td>
+          <td>John Doe</td>
+          <td>$5,000.00</td>
+          <td><button onclick="approveRequest(1)">Approve</button></td>
+        </tr>
+        <tr>
+          <td>2</td>
+          <td>Jane Smith</td>
+          <td>$7,500.00</td>
+          <td><button onclick="approveRequest(2)">Approve</button></td>
+        </tr>
+        <tr>
+            <td>3</td>
+            <td>Aml Yasser</td>
+            <td>$1,500.00</td>
+            <td><button onclick="approveRequest(3)">Approve</button></td>
+          </tr>
+          <tr>
+            <td>4</td>
+            <td>Omar Wael</td>
+            <td>$8,500.00</td>
+            <td><button onclick="approveRequest(4)">Approve</button></td>
+          </tr>
+          <tr>
+            <td>5</td>
+            <td>Rana Sabry</td>
+            <td>$10,500.00</td>
+            <td><button onclick="approveRequest(5)">Approve</button></td>
+          </tr>
+
+          <!-- Add more rows for other credit card requests as needed -->
+      </tbody>
+    </table>
+  </div>
+</body>
+</html>
