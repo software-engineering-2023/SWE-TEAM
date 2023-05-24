@@ -1,0 +1,163 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Pay Bills</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      background-color: #f2f2f2;
+      margin: 0;
+      padding: 0;
+    }
+    .container {
+      max-width: 600px;
+      margin: 50px auto;
+      padding: 30px;
+      background-color: #fff;
+      border-radius: 10px;
+      box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    }
+    h2 {
+      text-align: center;
+      margin-top: 0;
+      margin-bottom: 30px;
+      color: #333;
+      font-size: 24px;
+      text-transform: uppercase;
+    }
+    .bill-item {
+      margin-bottom: 20px;
+    }
+    .bill-title {
+      font-weight: bold;
+      font-size: 18px;
+      color: #4CAF50;
+    }
+    .bill-description {
+      color: #777;
+      font-size: 14px;
+    }
+    .payment-input {
+      display: block;
+      width: 100%;
+      padding: 10px;
+      margin-top: 5px;
+      margin-bottom: 10px;
+      border: 1px solid #ccc;
+      border-radius: 5px;
+      box-sizing: border-box;
+      font-family: inherit;
+    }
+    .pay-button {
+      background-color: #4CAF50;
+      color: #fff;
+      border: none;
+      cursor: pointer;
+      padding: 10px 20px;
+      font-size: 16px;
+      text-transform: uppercase;
+      transition: background-color 0.3s ease;
+      border-radius: 5px;
+    }
+    .pay-button:hover {
+      background-color: #45a049;
+    }
+    .pay-options {
+      margin-top: 10px;
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <h2>Pay Bills</h2>
+    <div class="bill-item">
+      <h3 class="bill-title">Gas Bill</h3>
+      <p class="bill-description">Due Date: <strong>15th June 2023</strong></p>
+      <p class="bill-description">Amount to be Paid: <strong>$75.00</strong></p>
+      <input type="number" class="payment-input" placeholder="Enter amount" id="gas-amount">
+      <div class="pay-options">
+        <label for="gas-payment-method">Select Payment Method:</label>
+        <select id="gas-payment-method" class="payment-input">
+          <option value="third-party-app">Pay with Third-Party App</option>
+          <option value="bank-account">Pay with Bank Account</option>
+        </select>
+      </div>
+      <button class="pay-button" onclick="payBill('gas')">Pay Gas Bill</button>
+    </div>
+    <div class="bill-item">
+      <h3 class="bill-title">Telephone Bill</h3>
+      <p class="bill-description">Due Date: <strong>20th June 2023</strong></p>
+      <p class="bill-description">Amount to be Paid: <strong>$50.00</strong></p>
+      <input type="number" class="payment-input" placeholder="Enter amount" id="telephone-amount">
+      <div class="pay-options">
+        <label for="telephone-payment-method">Select Payment Method:</label>
+        <select id="telephone-payment-method" class="payment-input">
+          <option value="third-party-app">Pay with Third-Party App</option>
+          <option value="bank-account">Pay with Bank Account</option>
+        </select>
+      </div>
+      <button class="pay-button" onclick="payBill('telephone')">Pay Telephone Bill</button>
+    </div>
+    <div class="bill-item">
+      <h3 class="bill-title">Water Bill</h3>
+      <p class="bill-description">Due Date: <strong>25th June 2023</strong></p>
+      <p class="bill-description">Amount to be Paid: <strong>$45.00</strong></p>
+      <input type="number" class="payment-input" placeholder="Enter amount" id="water-amount">
+      <div class="pay-options">
+        <label for="water-payment-method">Select Payment Method:</label>
+        <select id="water-payment-method" class="payment-input">
+          <option value="third-party-app">Pay with Third-Party App</option>
+          <option value="bank-account">Pay with Bank Account</option>
+        </select>
+      </div>
+      <button class="pay-button" onclick="payBill('water')">Pay Water Bill</button>
+    </div>
+    <div class="bill-item">
+      <h3 class="bill-title">Electricity Bill</h3>
+      <p class="bill-description">Due Date: <strong>30th June 2023</strong></p>
+      <p class="bill-description">Amount to be Paid: <strong>$100.00</strong></p>
+      <input type="number" class="payment-input" placeholder="Enter amount" id="electricity-amount">
+      <div class="pay-options">
+        <label for="electricity-payment-method">Select Payment Method:</label>
+        <select id="electricity-payment-method" class="payment-input">
+          <option value="third-party-app">Pay with Third-Party App</option>
+          <option value="bank-account">Pay with Bank Account</option>
+        </select>
+      </div>
+      <button class="pay-button" onclick="payBill('electricity')">Pay Electricity Bill</button>
+    </div>
+
+    <script>
+      function payBill(billType) {
+        // Retrieve the payment amount and payment method for the selected bill
+        var amount;
+        var paymentMethod;
+
+        if (billType === 'gas') {
+          amount = document.getElementById('gas-amount').value;
+          paymentMethod = document.getElementById('gas-payment-method').value;
+        } else if (billType === 'telephone') {
+          amount = document.getElementById('telephone-amount').value;
+          paymentMethod = document.getElementById('telephone-payment-method').value;
+        } else if (billType === 'water') {
+          amount = document.getElementById('water-amount').value;
+          paymentMethod = document.getElementById('water-payment-method').value;
+        } else if (billType === 'electricity') {
+          amount = document.getElementById('electricity-amount').value;
+          paymentMethod = document.getElementById('electricity-payment-method').value;
+        }
+
+        // Perform the payment process based on the selected payment method and amount
+        if (amount && paymentMethod) {
+          // Replace this with your payment processing logic
+          console.log('Processing payment for ' + billType + ' bill');
+          console.log('Amount: ' + amount);
+          console.log('Payment Method: ' + paymentMethod);
+        } else {
+          alert('Please enter the payment amount and select a payment method.');
+        }
+      }
+    </script>
+  </div>
+</body>
+</html>
