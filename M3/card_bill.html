@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Credit Card Bill</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      background-color: #f5f5f5;
+    }
+    
+    h1 {
+      text-align: center;
+      color: #333;
+    }
+    
+    .bill-container {
+      width: 80%;
+      margin: 20px auto;
+      background-color: #fff;
+      box-shadow: 0 0 20px rgba(0, 0, 0, 0.1);
+      padding: 20px;
+    }
+    
+    .bill-details {
+      margin-bottom: 20px;
+    }
+    
+    .button-container {
+      text-align: center;
+      margin-top: 20px;
+    }
+    
+    button {
+      padding: 10px 20px;
+      background-color: #4CAF50;
+      color: #fff;
+      border: none;
+      cursor: pointer;
+      font-size: 14px;
+      border-radius: 4px;
+    }
+    
+    input[type="text"] {
+      padding: 8px;
+      font-size: 14px;
+      border-radius: 4px;
+      border: 1px solid #ccc;
+    }
+    
+    input[type="text"]:focus {
+      outline: none;
+      border-color: #4CAF50;
+    }
+  </style>
+  <script>
+    function payFullAmount() {
+      // Perform the payment process for the full amount here
+      
+      // Display the success message or perform any necessary actions
+      alert("Payment successful! Thank you for your payment.");
+    }
+    
+    function payCustomAmount() {
+      var customAmountInput = document.getElementById("custom-amount");
+      var customAmount = parseFloat(customAmountInput.value);
+      
+      if (isNaN(customAmount) || customAmount <= 0) {
+        alert("Please enter a valid payment amount.");
+      } else {
+        // Perform the payment process for the custom amount here
+        
+        // Display the success message or perform any necessary actions
+        alert("Payment of $" + customAmount.toFixed(2) + " successful! Thank you for your payment.");
+        
+        // Clear the input field after successful payment
+        customAmountInput.value = "";
+      }
+    }
+  </script>
+</head>
+<body>
+  <h1>Credit Card Bill</h1>
+  
+  <div class="bill-container">
+    <div class="bill-details">
+      <h2>Bill Summary</h2>
+      <p>Client: John Doe</p>
+      <p>Bill Amount: $500.00</p>
+    </div>
+    
+    <div class="button-container">
+      <button onclick="payFullAmount()">Pay Full Amount</button>
+      <br><br>
+      <input type="text" id="custom-amount" placeholder="Enter Amount">
+      <br><br>
+      <button onclick="payCustomAmount()">Pay Custom Amount</button>
+    </div>
+  </div>
+</body>
+</html>
