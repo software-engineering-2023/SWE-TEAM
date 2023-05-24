@@ -1,0 +1,121 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Credit Card Points</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      background-image: linear-gradient(to left, #e28db7, #ebe1fc);
+    }
+    
+    h1 {
+      text-align: center;
+      color: #333;
+    }
+    
+    table {
+      width: 80%;
+      margin: 20px auto;
+      border-collapse: collapse;
+      background-color: #fff;
+      box-shadow: 0 0 20px rgba(0, 0, 0, 0.1);
+    }
+    
+    th, td {
+      padding: 15px;
+      text-align: left;
+      border-bottom: 1px solid #ddd;
+    }
+    
+    th {
+      background-color: #f2f2f2;
+      color: #666;
+    }
+    
+    tr:hover {
+      background-color: #f9f9f9;
+    }
+    
+    button {
+      padding: 8px 16px;
+      background-color: #67a381;
+      border-radius: 30px;
+      transition: background-color 0.3s, transform 0.3s;
+      
+      color: #fff;
+      border: none;
+      cursor: pointer;
+      font-size: 20px;
+      font-weight: bold;
+     
+    }
+    
+    button:hover {
+      background-color:black;
+    }
+    
+    button:active {
+      background-color: black;
+    }
+    
+    .success-message {
+      text-align: center;
+      color: #4CAF50;
+      font-weight: bold;
+      margin-top: 20px;
+      font-size: 16px;
+    }
+  </style>
+  <script>
+    function redeemCashBack(pointsBundle) {
+      // Perform the cash back redemption process for the selected points bundle here
+      
+      // Display the success message
+      alert("Amount added to your balance successfully!");
+    }
+  </script>
+</head>
+<body>
+  <h1>Credit Card Points</h1>
+  
+  <table>
+    <thead>
+      <tr>
+        <th>Points Bundle</th>
+        <th>Equivalent Cash Back</th>
+        <th>Action</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td>1000 points</td>
+        <td>$10</td>
+        <td><button onclick="redeemCashBack(1000)">Redeem Cash Back</button></td>
+      </tr>
+      <tr>
+        <td>2000 points</td>
+        <td>$20</td>
+        <td><button onclick="redeemCashBack(2000)">Redeem Cash Back</button></td>
+      </tr>
+      <tr>
+        <td>5000 points</td>
+        <td>$50</td>
+        <td><button onclick="redeemCashBack(5000)">Redeem Cash Back</button></td>
+      </tr>
+      <tr>
+        <td>1000 points</td>
+        <td>$10</td>
+        <td><button onclick="redeemCashBack(1000)">Redeem Cash Back</button></td>
+      </tr>
+      <tr>
+        <td>4000 points</td>
+        <td>$40</td>
+        <td><button onclick="redeemCashBack(4000)">Redeem Cash Back</button></td>
+      </tr>
+      <!-- Add more points bundles and cash back equivalents as needed -->
+    </tbody>
+  </table>
+  
+  <div class="success-message" id="success-message"></div>
+</body>
+</html>

@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Loan Requests</title>
+  <style>
+    body {
+      font-family: 'Arial', sans-serif;
+      color: #fff;
+      margin: 0;
+      background-image: linear-gradient(to left, #e28db7, #ebe1fc);
+      padding: 20px;
+    }
+    h1 {
+      text-align: center;
+      font-size: 36px;
+      margin-bottom: 40px;
+      
+      letter-spacing: 2px;
+      text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
+    }
+
+    .loan-request {
+        color: #333;
+    background-color: rgba(255, 255, 255, 0.65);
+      padding: 20px;
+      margin-bottom: 20px;
+    }
+
+    .loan-request h2 {
+      margin-top: 0;
+    }
+
+    .loan-request p {
+      margin-bottom: 10px;
+    }
+
+    .loan-request-buttons {
+      display: flex;
+      justify-content: center;
+    }
+
+    .loan-request-buttons button {
+      margin: 0 10px;
+      padding: 10px 20px;
+      background-color: #2ecc71;
+      color: #fff;
+      border: none;
+      border-radius: 5px;
+      font-size: 16px;
+      cursor: pointer;
+      transition: background-color 0.3s ease, transform 0.3s ease;
+    }
+
+    .loan-request-buttons button:hover {
+      background-color: #27ae60;
+      transform: translateY(-5px);
+    }
+
+    .loan-request-buttons .deny-button {
+      background-color: #e74c3c;
+    }
+
+    .loan-request-buttons .deny-button:hover {
+      background-color: #c0392b;
+      transform: translateY(-5px);
+    }
+  </style>
+</head>
+<body>
+    <h1>Loan Requests</h1>
+
+  <div class="loan-request">
+    <h2>Loan Request 1</h2>
+    <p>Client Name: John Doe</p>
+    <p>Loan Amount: $10,000</p>
+    <div class="loan-request-buttons">
+      <button class="approve-button">Approve</button>
+      <button class="deny-button">Deny</button>
+    </div>
+  </div>
+
+  <div class="loan-request">
+    <h2>Loan Request 2</h2>
+    <p>Client Name: Jane Smith</p>
+    <p>Loan Amount: $5,000</p>
+    <div class="loan-request-buttons">
+      <button class="approve-button">Approve</button>
+      <button class="deny-button">Deny</button>
+    </div>
+  </div>
+
+  <div class="loan-request">
+    <h2>Loan Request 3</h2>
+    <p>Client Name: Alex Johnson</p>
+    <p>Loan Amount: $15,000</p>
+    <div class="loan-request-buttons">
+      <button class="approve-button">Approve</button>
+      <button class="deny-button">Deny</button>
+    </div>
+  </div>
+</body>
+</html>
