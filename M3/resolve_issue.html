@@ -76,7 +76,7 @@
 <body>
   <h1>Problems to be solved</h1>
 
-  <div class="problem-card">
+  <div class="problem-card" id="row-1">
     <h2 class="problem-title">Issue 1</h2>
     <div class="client-info-container">
         <p class="client-info">
@@ -90,9 +90,9 @@
             Title: <br>
            Description: <br>
         </p>
-      </div><a href="#" class="solve-button">Solve</a>
+      </div><button class="solve-button" onclick="solve(1)">Solve</button>
   </div>
-  <div class="problem-card">
+  <div class="problem-card" id="row-2">
     <h2 class="problem-title">Issue 2</h2>
     <div class="client-info-container">
         <p class="client-info">
@@ -106,8 +106,8 @@
             Title: <br>
            Description: <br>
         </p>
-      </div><a href="#" class="solve-button">Solve</a>
-  </div><div class="problem-card">
+      </div><button class="solve-button" onclick="solve(2)">Solve</button>
+  </div><div class="problem-card" id="row-3">
     <h2 class="problem-title">Issue 3</h2>
     <div class="client-info-container">
         <p class="client-info">
@@ -121,8 +121,8 @@
             Title: <br>
            Description: <br>
         </p>
-      </div><a href="#" class="solve-button">Solve</a>
-  </div><div class="problem-card">
+      </div><button class="solve-button" onclick="solve(3)">Solve</button>
+  </div><div class="problem-card" id="row-4">
     <h2 class="problem-title">Issue 4</h2>
     <div class="client-info-container">
         <p class="client-info">
@@ -136,8 +136,8 @@
             Title:<br>
            Description: <br>
         </p>
-      </div><a href="#" class="solve-button">Solve</a>
-  </div><div class="problem-card">
+      </div><button class="solve-button" onclick="solve(4)">Solve</button>
+  </div><div class="problem-card" id="row-5">
     <h2 class="problem-title">Issue 5</h2>
     <div class="client-info-container">
         <p class="client-info">
@@ -151,8 +151,8 @@
          Title: <br> 
          Description: <br>
         </p>
-      </div><a href="#" class="solve-button">Solve</a>
-  </div><div class="problem-card">
+      </div><button class="solve-button" onclick="solve(5)">Solve</button>
+  </div><div class="problem-card" id="row-6">
     <h2 class="problem-title">Issue 6</h2>
     <div class="client-info-container">
         <p class="client-info">
@@ -166,13 +166,24 @@
             Title: <br>
            Description: <br>
         </p>
-      </div><a href="#" class="solve-button">Solve</a>
+      </div><button class="solve-button" onclick="solve(6)">Solve</button>
   </div>
 
 
 
 
+<script>
+  function solve(requestId){
 
+    // Display the success message or perform any necessary actions
+    
+    displaySuccessMessage("Issue with ID: " + requestId + " has been solved.");
+      document.getElementById("row-"+requestId).remove();
+    }
+    function displaySuccessMessage(message) {
+      alert(message);
+    }
+</script>
   
 
 </body>

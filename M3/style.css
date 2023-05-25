@@ -6,6 +6,7 @@ body {
     align-items: center;
     height: 100vh;
     margin: 0;
+    background-image: linear-gradient(to left,#e28bb5,#deccfc);
   }
   .container {
    

@@ -69,34 +69,52 @@
 <body>
     <h1>Loan Requests</h1>
 
-  <div class="loan-request">
+  <div class="loan-request" id="row-1">
     <h2>Loan Request 1</h2>
     <p>Client Name: John Doe</p>
     <p>Loan Amount: $10,000</p>
     <div class="loan-request-buttons">
-      <button class="approve-button">Approve</button>
-      <button class="deny-button">Deny</button>
+      <button class="approve-button" onclick="approve(1)">Approve</button>
+      <button class="deny-button" onclick="deny(1)">Deny</button>
     </div>
   </div>
 
-  <div class="loan-request">
+  <div class="loan-request" id="row-2">
     <h2>Loan Request 2</h2>
     <p>Client Name: Jane Smith</p>
     <p>Loan Amount: $5,000</p>
     <div class="loan-request-buttons">
-      <button class="approve-button">Approve</button>
-      <button class="deny-button">Deny</button>
+      <button class="approve-button" onclick="approve(2)">Approve</button>
+      <button class="deny-button" onclick="deny(2)">Deny</button>
     </div>
   </div>
 
-  <div class="loan-request">
+  <div class="loan-request" id="row-3">
     <h2>Loan Request 3</h2>
     <p>Client Name: Alex Johnson</p>
     <p>Loan Amount: $15,000</p>
     <div class="loan-request-buttons">
-      <button class="approve-button">Approve</button>
-      <button class="deny-button">Deny</button>
+      <button class="approve-button" onclick="approve(3)">Approve</button>
+      <button class="deny-button" onclick="deny(3)">Deny</button>
     </div>
   </div>
+
+  <script>
+     function approve(requestId) {
+      // Perform the approval process for the specific request here
+      
+      // Display the success message or perform any necessary actions
+      displaySuccessMessage("Request with ID: " + requestId + " has been approved.");
+      document.getElementById("row-"+requestId).remove();
+    }
+    function displaySuccessMessage(message) {
+      alert(message);
+    }
+    function deny(requestId){
+      displaySuccessMessage("Request with ID: " + requestId + " has been denied.");
+      document.getElementById("row-"+requestId).remove();
+    }
+  </script>
+
 </body>
 </html>

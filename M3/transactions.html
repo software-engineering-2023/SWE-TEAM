@@ -64,19 +64,35 @@
   <div class="container">
     <h2>View Transactions</h2>
     <div class="button-container">
-      <div class="button">
+      <div class="button" onclick="redirect('credit')">
         <span class="button-icon">💳</span>
         <span class="button-label">Credit Card Transactions</span>
       </div>
-      <div class="button">
+      <div class="button"onclick="redirect('bank')">
         <span class="button-icon">💰</span>
-        <span class="button-label">Bank Account Transactions</span>
+        <span class="button-label" >Bank Account Transactions</span>
       </div>
-      <div class="button">
+      <div class="button" onclick="redirect('Money')">
         <span class="button-icon">💸</span>
-        <span class="button-label">Money Transfer Transactions</span>
+        <span class="button-label" >Money Transfer Transactions</span>
       </div>
     </div>
   </div>
+  <script>
+    function redirect(type){
+      if(type ==='credit'){
+
+      window.location.href="credit_card_trans.html";
+    }
+    else if(type ==='Money'){
+      window.location.href="transfer_transac.html";
+    }
+    else if(type === 'bank'){
+      window.location.href="bank_account_trans.html";
+    }
+    }
+  
+  </script>
+
 </body>
 </html>
