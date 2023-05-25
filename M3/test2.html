@@ -228,8 +228,8 @@
   <div class="top-section">
   <ul class="menu-bar">
     <li>Home</li>
-    <li>Contact us</li>
-    <li>About us</li>
+    <li onclick="scrollToSection('contact')">Contact us</li>
+    <li onclick="scrollToSection('about')">About us</li>
     <li><a href="Sign_up.html">Sign up</a></li>
     <li><a href="Login.html">Log in</a></li>
    
@@ -240,12 +240,12 @@
   
   <!-- Main content -->
   <div class="main-content">
-    <div class="about-us">
+    <div class="about-us" id="about">
       <h2 class="header">About Us</h2>
       <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nullam in dui mauris. Curabitur ultricies purus ac ultrices pulvinar. Sed vulputate vestibulum ante, eu maximus purus lobortis vitae. Quisque facilisis augue ac fermentum condimentum. Etiam vitae tincidunt lectus.</p>
     </div>
     
-    <div class="contact-us">
+    <div class="contact-us" id="contact">
       <h2>Contact Us</h2>
       <p>Email: info@example.com</p>
       <p>Phone: 123-456-7890</p>
@@ -296,6 +296,12 @@
 </div>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.1.3/js/bootstrap.bundle.min.js"></script>
+<script>
+     function scrollToSection(sectionId) {
+      var section = document.getElementById(sectionId);
+      section.scrollIntoView({ behavior: 'smooth' });
+    }
+</script>
 
 </body>
 </html>
