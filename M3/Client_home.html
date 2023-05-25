@@ -1,47 +1,76 @@
 <!DOCTYPE html>
 <html>
 <head>
-  <title>Homepage</title>
+  <title>Home Page</title>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+ 
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.1.3/css/bootstrap.min.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/ionicons/2.0.1/css/ionicons.min.css">
+  <link rel="stylesheet" href="assets/css/style.css">
   <style>
-    /* Basic styles for the navigation drawer */
+    /* Global styles */
     body {
       margin: 0;
       padding: 0;
       font-family: Arial, sans-serif;
-      background-image: url(img/Saving04.jpg);
-      background-size: cover;
-      background-position: top;
-      justify-content: center;
-      overflow-y: scroll;
-      display: flex; 
-      background-repeat: no-repeat;
     }
-    .button-container {
+    .notifications {
+        position: fixed;
+      top: 10px;
+      right: 10px;
       display: flex;
+      align-items: center;
       justify-content: center;
+      width: 10px;
+      height: 10px;
+      background-color: #333;
+      color: #fff;
+      border-radius: 50%;
+      cursor: pointer;
     }
     
-    .button {
-      padding: 10px 20px;
-      background-color:transparent;
-      border: none;
-      color: #333;
-      font-size: 16px;
-      margin-right: 50px; 
-      margin-left: 50px;
-      cursor: pointer;
-      padding: 10px 20px;
-      border-radius: 30px;
-      transition: background-color 0.3s, transform 0.3s;
-      
- 
-
- 
-  
-
-  
-  
+    .badge {
+      position: absolute;
+      top: -5px;
+      right: -3px;
+      background-color: red;
+      color: #fff;
+      width: 15px;
+      height: 15px;
+      border-radius: 50%;
+      text-align: center;
+      line-height: 10px;
+      font-size: 10px;
     }
+    .dropdown {
+      position: absolute;
+      top: 20px;
+      right: 0;
+      width: 300px;
+      background-color: #67a381;
+      border: 1px solid #ddd;
+      border-radius: 4px;
+      display: none;
+      z-index: 1;
+    }
+    
+    .dropdown a {
+      color: white;
+      padding: 12px 16px;
+      text-decoration: none;
+      display: block;
+    }
+    
+     .dropdown a:hover {
+      background-color: black;
+      box-shadow: 0px 3px 20px 0px black;
+  transform: scale(1.0);
+    }
+    
+    .notifications:hover .dropdown {
+      display: block;
+    } 
     .navbar {
       position: fixed;
       top: 0;
@@ -82,7 +111,97 @@
 
     }
     
-    .openbtn {
+    /* Top section */
+    .top-section {
+      background-image: url('img/Saving04.jpg');
+      background-size: cover;
+      height: 1000px;
+      
+    }
+    
+    /* Main content */
+    .main-content {
+      padding: 40px;
+    }
+    
+    .about-us {
+      margin-bottom: 40px;
+      justify-content: center;
+      text-align: center;
+    }
+    h2{
+        justify-content: center;
+    }
+    
+    .contact-us {
+      margin-bottom: 40px;
+      text-align: center;
+    }
+    
+    /* Footer */
+    .footer {
+      background-color: #333;
+      color: white;
+      text-align: center;
+      padding: 20px 0;
+    }
+    
+    .footer a {
+      color: white;
+      text-decoration: none;
+      margin: 0 10px;
+    }
+    .footer-clean {
+  padding:50px 0;
+  background-color: #67a381;
+  color:white;
+  
+  bottom: 0;
+  width: 100%;
+}
+
+.footer-clean h3 {
+  margin-top:0;
+  margin-bottom:12px;
+  font-weight:bold;
+  font-size:16px;
+}
+
+.footer-clean ul {
+  padding:0;
+  list-style:none;
+  line-height:1.6;
+  font-size:14px;
+  margin-bottom:0;
+}
+
+.footer-clean ul a {
+  color:inherit;
+  text-decoration:none;
+  opacity:0.8;
+}
+
+.footer-clean ul a:hover {
+  opacity:1;
+}
+
+.footer-clean .item.social {
+  text-align:right;
+}
+
+@media (max-width:767px) {
+  .footer-clean .item {
+    text-align:center;
+    padding-bottom:20px;
+  }
+}
+
+@media (max-width: 768px) {
+  .footer-clean .item.social {
+    text-align:center;
+  }
+}
+.openbtn {
       position: fixed;
       top: 10px;
       left: 10px;
@@ -93,83 +212,61 @@
       border: none;
       cursor: pointer;
     }
-    
-    .notifications {
-        position: fixed;
-      top: 10px;
-      right: 10px;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      width: 10px;
-      height: 10px;
-      background-color: #333;
-      color: #fff;
-      border-radius: 50%;
-      cursor: pointer;
-    }
-    
-    .badge {
-      position: absolute;
-      top: -5px;
-      right: -5px;
-      background-color: red;
-      color: #fff;
-      width: 10px;
-      height: 10px;
-      border-radius: 50%;
-      text-align: center;
-      line-height: 10px;
-      font-size: 8px;
-    }
-    
-    .dropdown {
-      position: absolute;
-      top: 20px;
-      right: 0;
-      width: 300px;
-      background-color: #67a381;
-      border: 1px solid #ddd;
-      border-radius: 4px;
-      display: none;
-      z-index: 1;
-    }
-    
-    .dropdown a {
-      color: white;
-      padding: 12px 16px;
-      text-decoration: none;
-      display: block;
-    }
-    
-     .dropdown a:hover {
-      background-color: black;
-      box-shadow: 0px 3px 20px 0px black;
-  transform: scale(1.0);
-    }
-    
-    .notifications:hover .dropdown {
-      display: block;
-    } 
-    
-     
-    /* Styles for the rest of the page */
-    .content {
-      margin-top: 50px; /* Add margin to accommodate the navbar */
-      padding: 20px;
-    }
-    .menu-bar {
+.footer-clean .item.social > a {
+  font-size:24px;
+  width:40px;
+  height:40px;
+  line-height:40px;
+  display:inline-block;
+  text-align:center;
+  border-radius:50%;
+  border:1px solid #ccc;
+  margin-left:10px;
+  margin-top:22px;
+  color:inherit;
+  opacity:0.75;
+}
+
+.footer-clean .item.social > a:hover {
+  opacity:0.9;
+}
+
+@media (max-width:991px) {
+  .footer-clean .item.social > a {
+    margin-top:40px;
+  }
+}
+
+@media (max-width:767px) {
+  .footer-clean .item.social > a {
+    margin-top:10px;
+  }
+}
+
+.footer-clean .copyright {
+  margin-top:14px;
+  margin-bottom:0;
+  font-size:13px;
+  opacity:0.6;
+}
+.menu-bar {
   border-radius: 25px;
   height: -webkit-fit-content;
   height: -moz-fit-content;
   height: fit-content;
+  width: fit-content;
   display: inline-flex;
   background-color: #67a381;
   -webkit-backdrop-filter: blur(10px);
   backdrop-filter: blur(10px);
   align-items: center;
-  padding: 0 10px;
-  margin: 20px 0 0 0;
+  padding: 0;
+  margin: 0;
+  justify-content: center;
+  left: 50%;
+  top:5%;
+ transform: translateY(5%);
+  transform: translateX(75%);
 }
 .menu-bar li {
   list-style: none;
@@ -197,11 +294,10 @@
   color: white;
 }
 .menu-bar li:hover::before {
-  background: black;
+  background:black;
   box-shadow: 0px 3px 20px 0px black;
   transform: scale(1.2);
-}
- a{
+} a{
       color: white;
       text-decoration: none;
     }
@@ -209,10 +305,9 @@
       text-decoration: none;
       color: inherit;
     }
+
   </style>
   <script>
-    // JavaScript code to toggle the navigation drawer
-   
     document.addEventListener('click', function(event) {
       var navbar = document.getElementById('navbar');
       var openbtn = document.getElementById('openbtn');
@@ -221,7 +316,6 @@
         navbar.classList.remove('open');
       }
     });
-    
     function toggleNavbar() {
       var navbar = document.getElementById('navbar');
       navbar.classList.toggle('open');
@@ -241,24 +335,21 @@
       // Redirect to the next page
       window.location.href='Home_Page.html';
     }
-    
-    // Disable the back button on page load
-    
+   
   </script>
 </head>
 <body>
-  <ul class="menu-bar">
-    <li>Home</li>
-    <li>About us</li>
-    <li>Contact us</li>
-    <li><a href="Login.html">Log out</a></li>
-    <li onclick="closeaccount()">Close Account</li>
-    
-  </ul>
- 
+  <!-- Navigation bar -->
+  <!-- <div class="navbar">
+    <a href="#">Home</a>
+    <a href="#">About Us</a>
+    <a href="#">Contact Us</a>
+    <a href="#">Sign Up</a>
+    <a href="#">Login</a>
+  </div> -->
   <div class="notifications" id="notifications" >
     <span class="badge">3</span>
-    <img src="img/bell.png" alt="Notification Bell" style="width: 30px; height: 25px" >
+    <img src="img/bell.png" alt="Notification Bell" style="width: 35px; height: 30px;" >
     <div class="dropdown" id="dropdown">
       <a href="#">Notification 1</a>
       <a href="#">Notification 2</a>
@@ -266,32 +357,105 @@
     </div>
   </div>
   
-  <button id="openbtn" class="openbtn" onclick="toggleNavbar()">&#9776; </button>
+  <div class="top-section">
+  <ul class="menu-bar">
+    <li>Home</li>
+    <li onclick="scrollToSection('contact')">Contact us</li>
+    <li onclick="scrollToSection('about')">About us</li>
+    <li><a href="Login.html">Log out</a></li>
+    <li onclick="closeaccount()">Close Account</li>
+   
+  </ul>
   
-  <div id="navbar" class="navbar">
-    <ul>
-      <li><a href="apply_credit.html">Apply For Credit Card</a></li>
-      <li><a href="credit_card.html">My Credit Card</a></li>
-
-      <li><a href="apply_loan.html"> Apply For Loan</a></li>
-      <li><a href="myLoan.html"> View Loan</a></li>
-
-      <li><a href="bank_acc.html">Bank Account</a></li>
-     
-      <li><a href="services.html">Services</a></li>
-      <li><a href="send_money.html">Transfer </a></li>
-      <li><a href="report.html">Report Issue</a></li>
-      <li><a href="client_card_replacement.html">Request Credit Card Replacement</a></li>
-      <li><a href="transactions.html">View Transactions</a></li>
-
-      <li><a href="reminders.html">Set Reminders</a></li>
-
-    </ul>
+  <!-- Top section -->
   </div>
-
-  <div class="content">
-    <!-- Rest of your homepage content goes here -->
+  
+  <!-- Main content -->
+  <div class="main-content">
+    <div class="about-us" id="about">
+      <h2 class="header">About Us</h2>
+      <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nullam in dui mauris. Curabitur ultricies purus ac ultrices pulvinar. Sed vulputate vestibulum ante, eu maximus purus lobortis vitae. Quisque facilisis augue ac fermentum condimentum. Etiam vitae tincidunt lectus.</p>
+    </div>
     
+    <div class="contact-us" id="contact">
+      <h2>Contact Us</h2>
+      <p>Email: info@example.com</p>
+      <p>Phone: 123-456-7890</p>
+      <p>Address: 123 Street, City, Country</p>
+    </div>
   </div>
+  
+  <!-- Footer -->
+  <!-- <div class="footer">
+    <img src="path/to/your/logo.png" alt="Logo">
+    <a href="#">Careers</a>
+    <a href="#">FAQs</a>
+  </div> -->
+  <div class="footer-clean">
+    <footer>
+        <div class="container">
+            <div class="row justify-content-center">
+                <div class="col-sm-4 col-md-3 item">
+                    <h3>Services</h3>
+                    <ul>
+                        <li><a href="#">Web design</a></li>
+                        <li><a href="#">Development</a></li>
+                        <li><a href="#">Hosting</a></li>
+                    </ul>
+                </div>
+                <div class="col-sm-4 col-md-3 item">
+                    <h3>About</h3>
+                    <ul>
+                        <li><a href="#">Company</a></li>
+                        <li><a href="#">Team</a></li>
+                        <li><a href="#">Legacy</a></li>
+                    </ul>
+                </div>
+                <div class="col-sm-4 col-md-3 item">
+                    <h3>Careers</h3>
+                    <ul>
+                        <li><a href="#">Job openings</a></li>
+                        <li><a href="#">Employee success</a></li>
+                        <li><a href="#">Benefits</a></li>
+                    </ul>
+                </div>
+                <div class="col-lg-3 item social"><a href="#"><i class="icon ion-social-facebook"></i></a><a href="#"><i class="icon ion-social-twitter"></i></a><a href="#"><i class="icon ion-social-snapchat"></i></a><a href="#"><i class="icon ion-social-instagram"></i></a>
+                    <p class="copyright">Company Name © 2018</p>
+                </div>
+            </div>
+        </div>
+    </footer>
+</div>
+<button id="openbtn" class="openbtn" onclick="toggleNavbar()">&#9776; </button>
+<div id="navbar" class="navbar">
+  <ul>
+    <li><a href="apply_credit.html">Apply For Credit Card</a></li>
+    <li><a href="credit_card.html">My Credit Card</a></li>
+
+    <li><a href="apply_loan.html"> Apply For Loan</a></li>
+    <li><a href="myLoan.html"> View Loan</a></li>
+
+    <li><a href="bank_acc.html">Bank Account</a></li>
+   
+    <li><a href="services.html">Services</a></li>
+    <li><a href="send_money.html">Transfer </a></li>
+    <li><a href="report.html">Report Issue</a></li>
+    <li><a href="client_card_replacement.html">Request Credit Card Replacement</a></li>
+    <li><a href="transactions.html">View Transactions</a></li>
+
+    <li><a href="reminders.html">Set Reminders</a></li>
+
+  </ul>
+</div>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.1.3/js/bootstrap.bundle.min.js"></script>
+<script>
+     function scrollToSection(sectionId) {
+      var section = document.getElementById(sectionId);
+      section.scrollIntoView({ behavior: 'smooth' });
+    }
+    
+</script>
+
 </body>
 </html>
