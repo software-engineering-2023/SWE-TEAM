@@ -64,12 +64,20 @@
     
     function payFullAmount() {
       // Perform the payment process for the full amount here
-      
+
+      var customAmountInput = document.getElementById("custom-amount");
+      var customAmount = parseFloat(customAmountInput.value);
       // Display the success message or perform any necessary actions
-      alert("Payment of $" + billAmount.toFixed(2) + " successful! Thank you for your payment.");
+      if(billAmount !== customAmount){
+        alert('please enter full amount');
+      }else{
+      alert("Payment of $" + customAmount+ " successful! Thank you for your payment.");
       
       // Reset the bill amount after full payment
-      billAmount = 0;
+      billAmount = billAmount-customAmount;
+      document.getElementById("bill-amount").innerHTML = billAmount;
+      customAmountInput.value = "";
+      }
     }
     
     function payCustomAmount() {
@@ -83,7 +91,7 @@
       } else {
         // Deduct the custom amount from the bill
         billAmount -= customAmount;
-        
+        document.getElementById("bill-amount").innerHTML = billAmount;
         // Display the success message or perform any necessary actions
         alert("Payment of $" + customAmount.toFixed(2) + " successful! Thank you for your payment.");
         
@@ -100,7 +108,7 @@
     <div class="bill-details">
       <h2>Bill Summary</h2>
       <p>Client: John Doe</p>
-      <p>Bill Amount: $<span id="bill-amount">500.00</span></p>
+      <p>Bill Amount: $<span id="bill-amount">500 </span></p>
     </div>
     
     <div class="button-container">
