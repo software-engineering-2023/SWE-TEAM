@@ -33,8 +33,14 @@
       alert("Login successful!");
       window.location.href="Client_home.html";
       // Redirect to another page or perform other actions
-    } else {
-      alert("Invalid username or password. Please try again.");
+    } else if(username === "banker" && password === "password") {
+      alert("Login successful!");
+      window.location.href="Banker_home.html";
+    }else if (username === "admin" && password === "password"){
+      alert("Login successful!");
+      window.location.href="Admin_home.html";
+    }else{
+      alert("invalid username or password");
     }
   });
 
