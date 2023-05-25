@@ -73,6 +73,7 @@
       
       // Display the success message or perform any necessary actions
       displaySuccessMessage("Request with ID: " + requestId + " has been approved.");
+      document.getElementById("row-"+requestId).remove();
     }
     
     function displaySuccessMessage(message) {
@@ -96,31 +97,31 @@
         </tr>
       </thead>
       <tbody>
-        <tr>
+        <tr id="row-1">
           <td>1</td>
           <td>John Doe</td>
           <td>$5,000.00</td>
           <td><button onclick="approveRequest(1)">Approve</button></td>
         </tr>
-        <tr>
+        <tr id = "row-2">
           <td>2</td>
           <td>Jane Smith</td>
           <td>$7,500.00</td>
           <td><button onclick="approveRequest(2)">Approve</button></td>
         </tr>
-        <tr>
+        <tr id="row-3">
             <td>3</td>
             <td>Aml Yasser</td>
             <td>$1,500.00</td>
             <td><button onclick="approveRequest(3)">Approve</button></td>
           </tr>
-          <tr>
+          <tr id="row-4">
             <td>4</td>
             <td>Omar Wael</td>
             <td>$8,500.00</td>
             <td><button onclick="approveRequest(4)">Approve</button></td>
           </tr>
-          <tr>
+          <tr id="row-5">
             <td>5</td>
             <td>Rana Sabry</td>
             <td>$10,500.00</td>
