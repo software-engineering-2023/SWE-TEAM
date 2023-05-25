@@ -226,7 +226,24 @@
       var navbar = document.getElementById('navbar');
       navbar.classList.toggle('open');
     }
-   
+    function closeaccount(){
+      alert('Are you sure you want to close the account?');
+     goToNextPage();
+      history.pushState(null, null, location.href);
+    window.onpopstate = function () {
+      history.go(1);
+    };
+    }
+    function goToNextPage() {
+      // Push a new state to the browser history
+      history.pushState(null, null, "Home_page.html");
+      
+      // Redirect to the next page
+      window.location.href='Home_Page.html';
+    }
+    
+    // Disable the back button on page load
+    
   </script>
 </head>
 <body>
@@ -235,6 +252,7 @@
     <li>About us</li>
     <li>Contact us</li>
     <li><a href="Login.html">Log out</a></li>
+    <li onclick="closeaccount()">Close Account</li>
     
   </ul>
  
