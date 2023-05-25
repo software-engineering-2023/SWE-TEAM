@@ -72,8 +72,24 @@
       <label for="income">Annual Income:</label>
       <input type="text" id="income" required>
       
-      <button type="submit">Submit Application</button>
+      <button type="submit" onclick="submit()">Submit Application</button>
     </form>
   </div>
+  <script>
+document.getElementById("credit-card-form").addEventListener("submit", function(event) {
+    event.preventDefault();
+    
+   
+    
+    // Perform login process here
+   
+
+   
+      alert("Application is submitted successfully!");
+      window.location.href='Client_home.html';
+      
+  });
+  </script>
 </body>
+
 </html>
