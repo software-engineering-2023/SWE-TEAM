@@ -2,6 +2,12 @@
 <html>
 <head>
   <title>Home Page</title>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+ 
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.1.3/css/bootstrap.min.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/ionicons/2.0.1/css/ionicons.min.css">
+  <link rel="stylesheet" href="assets/css/style.css">
   <style>
     /* Global styles */
     body {
@@ -27,7 +33,7 @@
     .top-section {
       background-image: url('img/Saving04.jpg');
       background-size: cover;
-      height: 400px;
+      height: 1000px;
       
     }
     
@@ -38,10 +44,16 @@
     
     .about-us {
       margin-bottom: 40px;
+      justify-content: center;
+      text-align: center;
+    }
+    h2{
+        justify-content: center;
     }
     
     .contact-us {
       margin-bottom: 40px;
+      text-align: center;
     }
     
     /* Footer */
@@ -151,7 +163,7 @@
   height: -moz-fit-content;
   height: fit-content;
   width: fit-content;
-  display: flex;
+  display: inline-flex;
   background-color: #67a381;
   -webkit-backdrop-filter: blur(10px);
   backdrop-filter: blur(10px);
@@ -159,6 +171,10 @@
   padding: 0;
   margin: 0;
   justify-content: center;
+  left: 50%;
+  top:5%;
+ transform: translateY(5%);
+  transform: translateX(85%);
 }
 .menu-bar li {
   list-style: none;
@@ -225,7 +241,7 @@
   <!-- Main content -->
   <div class="main-content">
     <div class="about-us">
-      <h2>About Us</h2>
+      <h2 class="header">About Us</h2>
       <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nullam in dui mauris. Curabitur ultricies purus ac ultrices pulvinar. Sed vulputate vestibulum ante, eu maximus purus lobortis vitae. Quisque facilisis augue ac fermentum condimentum. Etiam vitae tincidunt lectus.</p>
     </div>
     
@@ -278,5 +294,8 @@
         </div>
     </footer>
 </div>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.1.3/js/bootstrap.bundle.min.js"></script>
+
 </body>
 </html>
