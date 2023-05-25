@@ -251,6 +251,21 @@
     }
 
   </style>
+  <script>
+    document.addEventListener('click', function(event) {
+      var navbar = document.getElementById('navbar');
+      var openbtn = document.getElementById('openbtn');
+      
+      if (!navbar.contains(event.target) && event.target !== openbtn) {
+        navbar.classList.remove('open');
+      }
+    });
+    function toggleNavbar() {
+      var navbar = document.getElementById('navbar');
+      navbar.classList.toggle('open');
+    }
+   
+  </script>
 </head>
 <body>
   <!-- Navigation bar -->
@@ -273,7 +288,7 @@
   
   <!-- Top section -->
   </div>
-  <button id="openbtn" class="openbtn" onclick="toggleNavbar()">&#9776; </button>
+  
   <!-- Main content -->
   <div class="main-content">
     <div class="about-us" id="about">
@@ -330,6 +345,7 @@
         </div>
     </footer>
 </div>
+<button id="openbtn" class="openbtn" onclick="toggleNavbar()">&#9776; </button>
 <div id="navbar" class="navbar">
   <ul>
     <li><a href="apply_credit.html">Apply For Credit Card</a></li>
@@ -357,10 +373,7 @@
       var section = document.getElementById(sectionId);
       section.scrollIntoView({ behavior: 'smooth' });
     }
-    function toggleNavbar() {
-      var navbar = document.getElementById('navbar');
-      navbar.classList.toggle('open');
-    }
+    
 </script>
 
 </body>
