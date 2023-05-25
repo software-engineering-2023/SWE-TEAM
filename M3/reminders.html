@@ -1,0 +1,213 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Bill and Installment Reminders</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      background-image: linear-gradient(to left, #e28db7, #ebe1fc);
+      margin: 20px;
+    }
+    
+    h1 {
+      color: #333;
+      text-align: center;
+      margin-bottom: 20px;
+    }
+    
+    ul {
+      list-style-type: none;
+      padding: 0;
+    }
+    
+    li {
+      margin-bottom: 10px;
+      border: 1px solid #ccc;
+      padding: 10px;
+      border-radius: 4px;
+    }
+    
+    .bill {
+      background-color: rgba(255, 255, 255, 0.65);
+    }
+    
+    .loan {
+      background-color: rgba(255, 255, 255, 0.65);
+    }
+    
+    .bill .title {
+      font-weight: bold;
+      margin-bottom: 5px;
+    }
+    
+    .bill .reminder-options {
+      margin-top: 10px;
+    }
+    
+    .loan .title {
+      font-weight: bold;
+      margin-bottom: 5px;
+    }
+    
+    .loan .reminder-options {
+      margin-top: 10px;
+    }
+    
+    select {
+      padding: 4px;
+    }
+    
+    button {
+      padding: 8px 16px;
+      background-color: #67a381;
+      border: none;
+      color: white;
+      cursor: pointer;
+      font-weight: bold;
+      border-radius: 10px;
+    
+      transition: background-color 0.3s ease, transform 0.3s ease;
+    }
+    
+    button:hover {
+      background-color: black;
+      transform: translateY(-5px);
+    }
+    button:active {
+      background-color: black;
+    }
+  </style>
+  <script>
+    function setReminder(Id) {
+      // Perform the approval process for the specific request here
+      
+      // Display the success message or perform any necessary actions
+      displaySuccessMessage("Reminder is set!");
+      document.getElementById(""+Id).remove();
+    }
+    
+    function displaySuccessMessage(message) {
+      alert(message);
+    }
+  </script>
+</head>
+<body>
+  <h1>Bills and Installments Reminders</h1>
+  
+  <ul>
+    <li class="bill" id="1">
+      <div class="title">Credit Card Bill</div>
+      <div>Due Date: January 15, 2023</div>
+      <div>Amount: $1000</div>
+      <div class="reminder-options">
+        <label for="cc-bill-reminder">Set Reminder:</label>
+        <select id="cc-bill-reminder" name="cc-bill-reminder">
+          <option value="none">None</option>
+          <option value="day">1 Day Before</option>
+          <option value="week">1 Week Before</option>
+          <option value="days">2 Days Before</option>
+          <!-- Add more options for different reminder durations -->
+        </select>
+        <button class="set-reminder" onclick="setReminder(1)">Set</button>
+      </div>
+    </li>
+    <li class="bill" id="2">
+      <div class="title">Gas Bill</div>
+      <div>Due Date: January 20, 2023</div>
+      <div>Amount: $50</div>
+      <div class="reminder-options">
+        <label for="gas-bill-reminder">Set Reminder:</label>
+        <select id="gas-bill-reminder" name="gas-bill-reminder">
+          <option value="none">None</option>
+          <option value="day">1 Day Before</option>
+          <option value="week">1 Week Before</option>
+          <option value="days">2 Days Before</option>
+          <!-- Add more options for different reminder durations -->
+        </select>
+        <button class="set-reminder" onclick="setReminder(2)">Set</button>
+      </div>
+    </li>
+    <li class="bill" id="3">
+      <div class="title">Water Bill</div>
+      <div>Due Date: January 25, 2023</div>
+      <div>Amount: $70</div>
+      <div class="reminder-options">
+        <label for="water-bill-reminder">Set Reminder:</label>
+        <select id="water-bill-reminder" name="water-bill-reminder">
+          <option value="none">None</option>
+          <option value="day">1 Day Before</option>
+          <option value="week">1 Week Before</option>
+          <option value="days">2 Days Before</option>
+          <!-- Add more options for different reminder durations -->
+        </select>
+        <button class="set-reminder" onclick="setReminder(3)">Set</button>
+      </div>
+    </li>
+    <li class="bill" id="4">
+      <div class="title">Electricity Bill</div>
+      <div>Due Date: January 30, 2023</div>
+      <div>Amount: $60</div>
+      <div class="reminder-options">
+        <label for="electricity-bill-reminder">Set Reminder:</label>
+        <select id="electricity-bill-reminder" name="electricity-bill-reminder">
+          <option value="none">None</option>
+          <option value="day">1 Day Before</option>
+          <option value="week">1 Week Before</option>
+          <option value="days">2 Days Before</option>
+          <!-- Add more options for different reminder durations -->
+        </select>
+        <button class="set-reminder" onclick="setReminder(4)">Set</button>
+      </div>
+    </li>
+    <li class="bill" id="5">
+      <div class="title">Telephone Bill</div>
+      <div>Due Date: February 5, 2023</div>
+      <div>Amount: $90</div>
+      <div class="reminder-options">
+        <label for="telephone-bill-reminder">Set Reminder:</label>
+        <select id="telephone-bill-reminder" name="telephone-bill-reminder">
+          <option value="none">None</option>
+          <option value="day">1 Day Before</option>
+          <option value="week">1 Week Before</option>
+          <option value="days">2 Days Before</option>
+          <!-- Add more options for different reminder durations -->
+        </select>
+        <button class="set-reminder" onclick="setReminder(5)">Set</button>
+      </div>
+    </li>
+    <li class="loan" id="6">
+      <div class="title">Loan installment-1</div>
+      <div>Due Date: February 1, 2023</div>
+      <div>Amount: $500</div>
+      <div class="reminder-options">
+        <label for="loan-installment-reminder">Set Reminder:</label>
+        <select id="loan-installment-reminder" name="loan-installment-reminder">
+          <option value="none">None</option>
+          <option value="day">1 Day Before</option>
+          <option value="week">1 Week Before</option>
+          <option value="days">2 Days Before</option>
+          <!-- Add more options for different reminder durations -->
+        </select>
+        <button class="set-reminder" onclick="setReminder(6)">Set</button>
+      </div>
+      <li class="loan" id="7">
+        <div class="title">Loan installment-2</div>
+        <div>Due Date: March 1, 2023</div>
+        <div>Amount: $500</div>
+        <div class="reminder-options">
+          <label for="loan-installment-reminder">Set Reminder:</label>
+          <select id="loan-installment-reminder" name="loan-installment-reminder">
+            <option value="none">None</option>
+            <option value="day">1 Day Before</option>
+            <option value="week">1 Week Before</option>
+            <option value="days">2 Days Before</option>
+            <!-- Add more options for different reminder durations -->
+          </select>
+          <button class="set-reminder" onclick="setReminder(7)">Set</button>
+        </div>
+      </li>
+    </li>
+  </ul>
+
+</body>
+</html>
