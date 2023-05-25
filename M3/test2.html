@@ -28,6 +28,7 @@
       background-image: url('img/Saving04.jpg');
       background-size: cover;
       height: 400px;
+      
     }
     
     /* Main content */
@@ -144,21 +145,82 @@
   font-size:13px;
   opacity:0.6;
 }
+.menu-bar {
+  border-radius: 25px;
+  height: -webkit-fit-content;
+  height: -moz-fit-content;
+  height: fit-content;
+  width: fit-content;
+  display: flex;
+  background-color: #67a381;
+  -webkit-backdrop-filter: blur(10px);
+  backdrop-filter: blur(10px);
+  align-items: center;
+  padding: 0;
+  margin: 0;
+  justify-content: center;
+}
+.menu-bar li {
+  list-style: none;
+  color: white;
+  font-family: sans-serif;
+  font-weight: bold;
+  padding: 12px 16px;
+  margin: 0 8px;
+  position: relative;
+  cursor: pointer;
+  white-space: nowrap;
+}
+.menu-bar li::before {
+  content: " ";
+  position: absolute;
+  top: 0;
+  left: 0;
+  height: 100%;
+  width: 100%;
+  z-index: -1;
+  transition: 0.2s;
+  border-radius: 25px;
+}
+.menu-bar li:hover {
+  color: white;
+}
+.menu-bar li:hover::before {
+  background:black;
+  box-shadow: 0px 3px 20px 0px black;
+  transform: scale(1.2);
+} a{
+      color: white;
+      text-decoration: none;
+    }
+    a:hover{
+      text-decoration: none;
+      color: inherit;
+    }
 
   </style>
 </head>
 <body>
   <!-- Navigation bar -->
-  <div class="navbar">
+  <!-- <div class="navbar">
     <a href="#">Home</a>
     <a href="#">About Us</a>
     <a href="#">Contact Us</a>
     <a href="#">Sign Up</a>
     <a href="#">Login</a>
-  </div>
+  </div> -->
+  <div class="top-section">
+  <ul class="menu-bar">
+    <li>Home</li>
+    <li>Contact us</li>
+    <li>About us</li>
+    <li><a href="Sign_up.html">Sign up</a></li>
+    <li><a href="Login.html">Log in</a></li>
+   
+  </ul>
   
   <!-- Top section -->
-  <div class="top-section"></div>
+  </div>
   
   <!-- Main content -->
   <div class="main-content">
