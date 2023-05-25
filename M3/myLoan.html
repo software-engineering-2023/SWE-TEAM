@@ -1,0 +1,150 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Loan Details</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      background-image: linear-gradient(to left, #e28db7, #ebe1fc);
+      margin: 20px;
+    }
+    
+    h1 {
+      color: black;
+      text-align: center;
+      margin-top: 30px;
+    }
+    
+    h2 {
+      color: black;
+      margin-top: 20px;
+    }
+    
+    h3 {
+      color: black;
+      margin-bottom: 10px;
+    }
+    
+    p {
+      color: #333;
+      font-weight: bold;
+      margin-bottom: 5px;
+    }
+    
+    table {
+        border-collapse: collapse;
+  border-spacing: 0;
+  width: 100%;
+  margin-top: 20px;
+  border-radius: 15px;
+  overflow: hidden;
+    }
+    
+    th, td {
+      border: 1px solid #ccc;
+      
+      padding: 10px;
+      text-align: center;
+    }
+    
+    th {
+      background-color: #f2f2f2;
+      font-weight: bold;
+    }
+    
+    tr:nth-child(even) {
+      background-color: #f9f9f9;
+    }
+    
+    tr:nth-child(odd) {
+      background-color: #f5f5f5;
+    }
+    
+    button {
+      padding: 8px 16px;
+      background-color: #67a381;
+      border: none;
+      color: white;
+      cursor: pointer;
+      font-weight: bold;
+      transition: background-color 0.3s ease, transform 0.3s ease;
+      border-radius: 10px;
+    }
+    
+    button:hover {
+      background-color: black;
+      transform: translateY(-5px);
+    }
+    button:active {
+      background-color: black;
+    }
+    
+  </style>
+  <script>
+    function pay(installmentID) {
+      // Perform the approval process for the specific request
+      
+      // Display the success message or perform any necessary actions
+      alert("Installment #"+ installmentID+" is paid sucessfully!");
+      document.getElementById(installmentID+"").remove();
+    }
+    
+  </script>
+</head>
+<body>
+  <h1>Loan Details</h1>
+  
+  <h2>Personal Loan</h2>
+  <p>Date of Loan: January 1, 2023</p>
+  <p>Due Date of Payment in Full: December 31, 2023</p>
+  <p>Loan Amount: $30,000</p>
+  
+  <h3>Installments:</h3>
+  <table>
+    <tr>
+      <th>Installment</th>
+      <th>Amount</th>
+      <th>Due Date</th>
+      <th>Payment</th>
+    </tr>
+    <tr id="1">
+      <td>1</td>
+      <td>$500</td>
+      <td>February 1, 2023</td>
+      <td><button onclick="pay(1)">Pay Now</button></td>
+    </tr>
+    <tr id="2">
+      <td>2</td>
+      <td>$500</td>
+      <td>March 1, 2023</td>
+      <td><button onclick="pay(2)">Pay Now</button></td>
+    </tr>
+    <tr id="3">
+      <td>3</td>
+      <td>$500</td>
+      <td>April 1, 2023</td>
+      <td><button onclick="pay(3)">Pay Now</button></td>
+    </tr>
+    <tr id="4">
+      <td>4</td>
+      <td>$500</td>
+      <td>May 1, 2023</td>
+      <td><button onclick="pay(4)">Pay Now</button></td>
+    </tr>
+    <tr id="5">
+        <td>5</td>
+        <td>$500</td>
+        <td>June 1, 2023</td>
+        <td><button onclick="pay(5)">Pay Now</button></td>
+      </tr>
+      <tr id="6">
+        <td>6</td>
+        <td>$500</td>
+        <td>July 1, 2023</td>
+        <td><button onclick="pay(6)">Pay Now</button></td>
+      </tr>
+    <!-- Add more rows for additional installments -->
+  </table>
+  
+</body>
+</html>
