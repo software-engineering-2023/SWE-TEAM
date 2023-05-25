@@ -1,0 +1,140 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Transaction Details</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      background-color: #f2f2f2;
+      margin: 20px;
+      background-image: linear-gradient(to left, #e28db7, #ebe1fc);
+    }
+    
+    h1 {
+      color: black;
+      text-align: center;
+      margin-top: 30px;
+    }
+    
+    table {
+      width: 100%;
+      border-collapse: collapse;
+      margin-top: 20px;
+    }
+    
+    th, td {
+      padding: 10px;
+      text-align: center;
+      border: 1px solid #ccc;
+    }
+    
+    th {
+      background-color: #f2f2f2;
+      font-weight: bold;
+    }
+    
+    tr:nth-child(even) {
+      background-color: #f9f9f9;
+    }
+    
+    tr:nth-child(odd) {
+      background-color: #f5f5f5;
+    }
+    
+    .buttons {
+      display: flex;
+      justify-content: center;
+      gap: 10px;
+    }
+    
+    .accept-btn {
+      padding: 8px 16px;
+      background-color: #67a381;
+      border: none;
+      color: white;
+      cursor: pointer;
+      font-weight: bold;
+      transition: background-color 0.3s ease, transform 0.3s ease;
+      border-radius: 10px;
+    }
+    .deny-btn{
+        padding: 8px 16px;
+      background-color: red;
+      border: none;
+      color: white;
+      cursor: pointer;
+      font-weight: bold;
+      transition: background-color 0.3s ease, transform 0.3s ease;
+      border-radius: 10px; padding: 8px 16px;
+
+      border: none;
+      color: white;
+      cursor: pointer;
+      font-weight: bold;
+      transition: background-color 0.3s ease, transform 0.3s ease;
+      border-radius: 10px;
+    }
+    
+    .accept-btn:hover, .deny-btn:hover {
+      background-color: black;
+      transform: translateY(-5px);
+    }
+    
+    .accept-btn:active, .deny-btn:active {
+      background-color: black;
+    }
+    tbody td {
+      padding-bottom: 10px;
+    }
+  </style>
+</head>
+<body>
+  <h1>Transaction Details</h1>
+  
+  <table>
+    <tr>
+      <th>Sender</th>
+      <th>Receiver</th>
+      <th>Date</th>
+      <th>Type</th>
+      <th>Amount</th>
+      <th>Action</th>
+    </tr>
+    <tr id="first">
+      <td>John Doe</td>
+      <td>Jane Smith</td>
+      <td>May 23, 2023</td>
+      <td>Bank Account</td>
+      <td>4000</td>
+      <td class="buttons">
+        <button class="accept-btn" onclick="accept('first')">Accept</button>
+        <button class="deny-btn" onclick="deny('first')">Deny</button>
+      </td>
+    </tr>
+    
+    <tr id="second">
+      <td>David Johnson</td>
+      <td>Emily Davis</td>
+      <td>May 24, 2023</td>
+      <td>Credit</td>
+      <td>5000</td>
+      <td class="buttons">
+        <button class="accept-btn" onclick="accept('second')">Accept</button>
+        <button class="deny-btn" onclick="deny('second')">Deny</button>
+      </td>
+    </tr>
+    <!-- Add more rows for additional transactions -->
+  </table>
+  <script>
+    function accept(id){
+        alert('Transaction is accepted');
+        document.getElementById(id).remove();
+    }
+    function deny(id){
+        alert('Transaction is denied');
+        document.getElementById(id).remove();
+    }
+  </script>
+
+</body>
+</html>
