@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Bank Account Info</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+     
+      margin: 0;
+      padding: 0;
+      background-image: linear-gradient(to left, #e28db7, #ebe1fc);
+    }
+    .container {
+      max-width: 600px;
+      margin: 50px auto;
+      padding: 30px;
+      background-color: #fff;
+      border-radius: 10px;
+      box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    }
+    h2 {
+      text-align: center;
+      margin-top: 0;
+      margin-bottom: 30px;
+      color: #333;
+      font-size: 24px;
+      text-transform: uppercase;
+    }
+    .account-info {
+      margin-bottom: 20px;
+    }
+    .info-label {
+      font-weight: bold;
+      font-size: 18px;
+      color: #4CAF50;
+    }
+    .info-value {
+      font-size: 16px;
+      color: #777;
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <h2>Card Details</h2>
+    <div class="account-info">
+      <p class="info-label">Card Holder Name:</p>
+      <p class="info-value">John Doe</p>
+    </div>
+    <div class="account-info">
+      <p class="info-label">Card Number:</p>
+      <p class="info-value">1234 5678 9011 6420</p>
+    </div>
+    <div class="account-info">
+      <p class="info-label">Card Type:</p>
+      <p class="info-value">Standard</p>
+    </div>
+    <div class="account-info">
+      <p class="info-label">Current Balance:</p>
+      <p class="info-value" id="bal">1,0000.0</p>
+      <!-- <script>
+        var balance = document.getElementById("bal").value;
+        var addon = localStorage.getItem("account balance");
+         var add=parseInt(addon);
+        document.getElementById("bal").innerHTML= add+balance;
+      </script> -->
+    </div>
+    <div class="account-info">
+        <p class="info-label">Card Limit:</p>
+        <p class="info-value" id="bal">10,0000.0</p>
+  </div>
+</body>
+</html>

@@ -1,0 +1,130 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Problem Solver</title>
+  <style>
+    /* CSS Styling */
+    body {
+      font-family: 'Arial', sans-serif;
+      background-image: linear-gradient(to left, #e28db7, #ebe1fc);
+      color: #fff;
+      margin: 0;
+      padding: 20px;
+    }
+
+    h1 {
+      text-align: center;
+      font-size: 36px;
+      margin-bottom: 40px;
+      text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
+    }
+
+    .problem-card {
+      background-color: #fff;
+      box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3);
+      padding: 20px;
+      margin-bottom: 40px;
+      border-radius: 10px;
+    }
+
+    .problem-title {
+        color: #333;
+      font-size: 24px;
+      margin-bottom: 10px;
+      text-align: center;
+    }
+
+    .client-info{
+        color: #333;
+      font-size: 18px;
+      margin-bottom: 10px;
+    }
+
+    .issue-description{
+        color: #333;
+      font-size: 18px;
+      margin-bottom: 10px;
+    }
+
+    .client-info-container,
+.issue-description-container {
+  border: 1px solid #ddd;
+  padding: 10px;
+  margin-bottom: 10px;
+}
+
+    .solve-button {
+      display: block;
+      margin: 0 auto;
+      padding: 10px 40px;
+      background-color: #2ecc71;
+      color: #fff;
+      text-decoration: none;
+      border-radius: 25px;
+      transition: background-color 0.3s ease , transform 0.3s ease;
+      text-align: center;
+      font-size: 18px;
+      text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.5);
+    }
+
+    .solve-button:hover {
+      background-color: #27ae60;
+      transform: translateY(-2px);
+    }
+  </style>
+</head>
+<body>
+  <h1>Problems to be solved</h1>
+
+  <div class="problem-card" id="row-1">
+    <h2 class="problem-title">Issue 1</h2>
+    <div class="client-info-container">
+        <p class="client-info">
+          <strong>Name:</strong> John Smith<br>
+          <strong>Account Number:</strong> 123456789<br>
+          <strong>Email:</strong> johnsmith@example.com<br>
+        </p>
+      </div>
+      <div class="issue-description-container">
+        <p class="issue-description">
+           <strong> Title:</strong> Login Problems<br>
+           <strong> Description:</strong> I'm having trouble logging into my online banking account. Every time I enter my username and password, it keeps giving me an error message. <br>
+        </p>
+      </div><button class="solve-button" onclick="solve(1)">Solve</button>
+  </div>
+  <div class="problem-card" id="row-2">
+    <h2 class="problem-title">Issue 2</h2>
+    <div class="client-info-container">
+        <p class="client-info">
+          <strong>Name:</strong> Jane Doe<br>
+        <strong>Account Number:</strong> 987654321<br>
+        <strong>Email:</strong> janedoe@example.com<br>
+        </p>
+      </div>
+      <div class="issue-description-container">
+        <p class="issue-description">
+          <strong> Title: </strong> Account Access Restrictions<br>
+          <strong> Description:</strong> I'm trying to view my credit card points. The button is grayed out. <br>
+        </p>
+      </div><button class="solve-button" onclick="solve(2)">Solve</button>
+  </div>
+
+
+
+
+<script>
+  function solve(requestId){
+
+    // Display the success message or perform any necessary actions
+    
+    displaySuccessMessage("Issue with ID: " + requestId + " has been solved.");
+      document.getElementById("row-"+requestId).remove();
+    }
+    function displaySuccessMessage(message) {
+      alert(message);
+    }
+</script>
+  
+
+</body>
+</html>
