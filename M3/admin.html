@@ -17,14 +17,14 @@
     }
     .notifications {
         position: fixed;
-      top: 20px;
+      top: 5px;
       right: 20px;
       display: flex;
       align-items: center;
       justify-content: center;
-      width: 60px;
-      height: 50px;
-      background-color:transparent;
+      width: 30px;
+      height: 30px;
+      background-color : transparent;
       color: #fff;
       border-radius: 50%;
       cursor: pointer;
@@ -36,7 +36,7 @@
       right: -3px;
       background-color: red;
       color: #fff;
-      width: 25px;
+      width: 15px;
       height: 15px;
       border-radius: 50%;
       text-align: center;
@@ -203,8 +203,8 @@
   }
 }
 .openbtn {
-      position: fixed;
-      top: 10px;
+    position: fixed;
+      top: 3px;
       left: 10px;
       background-color: transparent;
       color: #111;
@@ -251,23 +251,21 @@
   opacity:0.6;
 }
 .menu-bar {
-  border-radius: 25px;
-  height: -webkit-fit-content;
+    height: -webkit-fit-content;
   height: -moz-fit-content;
   height: fit-content;
-  width: 600px;
-  display: inline-flex;
+  width: 100%;
+  display: flex;
+  /* position: fixed; */
   background-color: #67a381;
   -webkit-backdrop-filter: blur(10px);
   backdrop-filter: blur(10px);
   align-items: center;
-  padding: 0;
+ 
   margin: 0;
   justify-content: center;
   left: 50%;
-  top:5%;
- transform: translateY(5%);
-  transform: translateX(75%);
+  top: -100px;
 }
 .menu-bar li {
   list-style: none;
@@ -305,6 +303,11 @@
     a:hover{
       text-decoration: none;
       color: inherit;
+    }
+    .logo{
+        left: 130px;
+        top: -15px;
+        position: fixed;
     }
 
   </style>
@@ -348,24 +351,39 @@
     <a href="#">Sign Up</a>
     <a href="#">Login</a>
   </div> -->
-  <div class="notifications" id="notifications" >
-    <span class="badge">3</span>
-    <img src="img/bell.png" alt="Notification Bell" style="width: 35px; height: 30px" >
-    <div class="dropdown" id="dropdown">
-        <a href="#">you recieved 40 Technical issues.</a>
-        <a href="#"> there is 50 logins today.</a>
-        <a href="#">you received 20 registers needs to check authorization.</a>
-    </div>
-  </div>
+  
   
   <div class="top-section">
   <ul class="menu-bar">
+    <div class="logo">
+        <a href="admin.html">
+        <img src="img/logo.png" style="width: 150px; height:75px; ">
+    </a>
+    </div>
+    <div class="notifications" id="notifications" >
+        <span class="badge">3</span>
+        <img src="img/bell.png" alt="Notification Bell" style="width: 35px; height: 30px" >
+        <div class="dropdown" id="dropdown">
+            <a href="#">you recieved 40 Technical issues.</a>
+            <a href="#"> there is 50 logins today.</a>
+            <a href="#">you received 20 registers needs to check authorization.</a>
+        </div>
+      </div>
     <li>Home</li>
     <li onclick="scrollToSection('contact')">Contact us</li>
     <li onclick="scrollToSection('about')">About us</li>
     <li><a href="Login.html">Log out</a></li>
    
-   
+    <button id="openbtn" class="openbtn" onclick="toggleNavbar()">&#9776; </button>
+    <div id="navbar" class="navbar">
+      <ul>       
+        <li><a href="authorization.html"> Validate authorization</a></li>
+        <li><a href="history.html"> History </a></li>
+          <li><a href="resolve_technical_issue.html"> Technical issues</a></li>
+          <li><a href="block_client.html"> Block A Client</a></li>
+    
+      </ul>
+    </div>
   </ul>
   
   <!-- Top section -->
@@ -427,16 +445,7 @@
         </div>
     </footer>
 </div>
-<button id="openbtn" class="openbtn" onclick="toggleNavbar()">&#9776; </button>
-<div id="navbar" class="navbar">
-  <ul>       
-    <li><a href="authorization.html"> Validate authorization</a></li>
-    <li><a href="history.html"> History </a></li>
-      <li><a href="resolve_technical_issue.html"> Technical issues</a></li>
-      <li><a href="block_client.html"> Block A Client</a></li>
 
-  </ul>
-</div>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.1.3/js/bootstrap.bundle.min.js"></script>
 <script>
