@@ -2,12 +2,118 @@
 <html>
 <head>
   <title>Credit Card Application</title>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.1.3/css/bootstrap.min.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/ionicons/2.0.1/css/ionicons.min.css">
+  <link rel="stylesheet" href="assets/css/style.css">
+  
   <style>
     body {
       font-family: Arial, sans-serif;
       background: linear-gradient(to left,#e28bb5,#deccfc);
       
     }
+    .footer {
+      background-color: #333;
+      color: white;
+      text-align: center;
+      padding: 20px 0;
+    }
+    
+    .footer a {
+      color: white;
+      text-decoration: none;
+      margin: 0 10px;
+    }
+    .footer-clean {
+  padding:50px 0;
+  background-color: #67a381;
+  color:white;
+  
+  bottom: 0;
+  width: 100%;
+}
+
+.footer-clean h3 {
+  margin-top:0;
+  margin-bottom:12px;
+  font-weight:bold;
+  font-size:16px;
+}
+
+.footer-clean ul {
+  padding:0;
+  list-style:none;
+  line-height:1.6;
+  font-size:14px;
+  margin-bottom:0;
+}
+
+.footer-clean ul a {
+  color:inherit;
+  text-decoration:none;
+  opacity:0.8;
+}
+
+.footer-clean ul a:hover {
+  opacity:1;
+}
+
+.footer-clean .item.social {
+  text-align:right;
+}
+
+@media (max-width:767px) {
+  .footer-clean .item {
+    text-align:center;
+    padding-bottom:20px;
+  }
+}
+
+@media (max-width: 768px) {
+  .footer-clean .item.social {
+    text-align:center;
+  }
+}
+
+.footer-clean .item.social > a {
+  font-size:24px;
+  width:40px;
+  height:40px;
+  line-height:40px;
+  display:inline-block;
+  text-align:center;
+  border-radius:50%;
+  border:1px solid #ccc;
+  margin-left:10px;
+  margin-top:22px;
+  color:inherit;
+  opacity:0.75;
+}
+
+.footer-clean .item.social > a:hover {
+  opacity:0.9;
+}
+
+@media (max-width:991px) {
+  .footer-clean .item.social > a {
+    margin-top:40px;
+  }
+}
+
+@media (max-width:767px) {
+  .footer-clean .item.social > a {
+    margin-top:10px;
+  }
+}
+
+.footer-clean .copyright {
+  margin-top:14px;
+  margin-bottom:0;
+  font-size:13px;
+  opacity:0.6;
+}
     .menu-bar {
     height: 50px;
 
@@ -86,7 +192,7 @@
     input[type="email"],
     input[type="tel"],
     select,
-    button {
+    .submit {
       width: 100%;
       padding: 10px;
       margin-bottom: 10px;
@@ -94,12 +200,12 @@
       border-radius: 3px;
       box-sizing: border-box;
     }
-    button {
+    .submit {
       background-color: #4CAF50;
       color: #fff;
       cursor: pointer;
     }
-    button:hover {
+    .submit:hover {
       background-color: #45a049;
     }
     .notifications {
@@ -164,7 +270,7 @@
       top: 0;
       left: -250px; /* Initially hidden off the screen */
       width: 250px;
-      height: 100vh;
+      height: fit-content;
       background-color:#67a381;
       color: #fff;
       transition: left 0.3s ease;
@@ -208,11 +314,17 @@
       font-size: 20px;
       border: none;
       cursor: pointer;
+     
+    }
+    .container{
+      top: 30px;
+      margin-top: 30px;
+      margin-right: 600px;
     }
   </style>
 </head>
 <body>
-
+<div>
   <ul class="menu-bar">
     <div class="logo">
         <a href="Client_home.html">
@@ -244,7 +356,7 @@
       <li><a href="services.html">Services</a></li>
       <li><a href="send_money.html">Transfer </a></li>
       <li><a href="report.html">Report Issue</a></li>
-      <li><a href="client_card_replacement.html">Request Credit Card Replacement</a></li>
+      <li><a href="client_card_replacement.html">Request Credit Card<br> Replacement</a></li>
       <li><a href="transactions.html">View Transactions</a></li>
   
       <li><a href="reminders.html">Set Reminders</a></li>
@@ -278,9 +390,46 @@
       <label for="income">Annual Income:</label>
       <input type="text" id="income" required>
       
-      <button type="submit" onclick="submit()">Submit Application</button>
+      <button class="submit" type="submit" onclick="submit()">Submit Application</button>
     </form>
   </div>
+
+</div>
+<!-- <div class="footer-clean">
+  <footer>
+      <div class="container">
+          <div class="row justify-content-center">
+              <div class="col-sm-4 col-md-3 item">
+                  <h3>Services</h3>
+                  <ul>
+                      <li><a href="#">Web design</a></li>
+                      <li><a href="#">Development</a></li>
+                      <li><a href="#">Hosting</a></li>
+                  </ul>
+              </div>
+              <div class="col-sm-4 col-md-3 item">
+                  <h3>About us</h3>
+                  <ul>
+                      <li><a href="#">Company</a></li>
+                      <li><a href="#">Team</a></li>
+                      <li><a href="#">Legacy</a></li>
+                  </ul>
+              </div>
+              <div class="col-sm-4 col-md-3 item">
+                  <h3>Careers</h3>
+                  <ul>
+                      <li><a href="#">Job openings</a></li>
+                      <li><a href="#">Employee success</a></li>
+                      <li><a href="#">Benefits</a></li>
+                  </ul>
+              </div>
+              <div class="col-lg-3 item social"><a href="#"><i class="icon ion-social-facebook"></i></a><a href="#"><i class="icon ion-social-twitter"></i></a><a href="#"><i class="icon ion-social-snapchat"></i></a><a href="#"><i class="icon ion-social-instagram"></i></a>
+                  <p class="copyright">Company Name © 2018</p>
+              </div>
+          </div>
+      </div>
+  </footer>
+</div> -->
   <script>
 document.getElementById("credit-card-form").addEventListener("submit", function(event) {
     event.preventDefault();
@@ -296,6 +445,24 @@ document.getElementById("credit-card-form").addEventListener("submit", function(
       
   });
   </script>
+   <script>
+    document.addEventListener('click', function(event) {
+      var navbar = document.getElementById('navbar');
+      var openbtn = document.getElementById('openbtn');
+      
+      if (!navbar.contains(event.target) && event.target !== openbtn) {
+        navbar.classList.remove('open');
+      }
+    });
+    function toggleNavbar() {
+      var navbar = document.getElementById('navbar');
+      navbar.classList.toggle('open');
+    }
+    </script>
+  
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.1.3/js/bootstrap.bundle.min.js"></script>
+
 </body>
 
 </html>

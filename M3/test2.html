@@ -1,68 +1,51 @@
 <!DOCTYPE html>
 <html>
 <head>
-  <title>Home Page</title>
-  <meta charset="utf-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
- 
+  <title>Client Search - Admin Panel</title>
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.1.3/css/bootstrap.min.css">
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/ionicons/2.0.1/css/ionicons.min.css">
   <link rel="stylesheet" href="assets/css/style.css">
+  <link rel="stylesheet" type="text/css" href="credit_cardTest.css">
   <style>
-    /* Global styles */
     body {
-      margin: 0;
-      padding: 0;
       font-family: Arial, sans-serif;
+      background:linear-gradient(to left,#e28bb5,#deccfc);
     }
-    
-    /* Navigation bar */
-    .navbar {
-      background-color: #333;
-      text-align: center;
-      padding: 10px 0;
-    }
-   
-    
-    .navbar a {
-      color: white;
-      text-decoration: none;
-      margin: 0 10px;
-    }
-    
-    /* Top section */
-    .top-section {
-      background-image: url('img/Saving04.jpg');
-      background-size: cover;
-      height: 1000px;
-      
-    }
-    
-    /* Main content */
-    .main-content {
-      padding: 40px;
-    }
-    
-    .about-us {
-      margin-bottom: 40px;
-      justify-content: center;
+    h2 {
       text-align: center;
     }
-    h2{
-        justify-content: center;
+    label {
+      display: block;
+      margin-bottom: 5px;
     }
-    
-    .contact-us {
-      margin-bottom: 40px;
-      text-align: center;
+    input[type="text"],
+    input[type="email"],
+    input[type="tel"],
+    input[type="number"],
+    select,
+    .submit {
+      width: 100%;
+      padding: 10px;
+      margin-bottom: 10px;
+      border: 1px solid #ccc;
+      border-radius: 3px;
+      box-sizing: border-box;
     }
-    
-    /* Footer */
+    .submit{
+      background-color: #4CAF50;
+      color: #fff;
+      cursor: pointer;
+    }
+    .submit:hover {
+      background-color: #45a049;
+    }
     .footer {
       background-color: #333;
       color: white;
       text-align: center;
-      padding: 20px 0;
+      
+      padding-top: 100px;
+      margin-top: 100px;
     }
     
     .footer a {
@@ -119,9 +102,7 @@
   .footer-clean .item.social {
     text-align:center;
   }
-}
-
-.footer-clean .item.social > a {
+}.footer-clean .item.social > a {
   font-size:24px;
   width:40px;
   height:40px;
@@ -158,24 +139,212 @@
   font-size:13px;
   opacity:0.6;
 }
-.menu-bar {
+
+    .search-container {
+        margin-bottom: 400px;
+  margin-top: 20px;
+  display: flex;
+  justify-content: center;
+}
+
+.search-input {
+  width: 300px;
+  padding: 10px;
+  border: none;
   border-radius: 25px;
-  height: -webkit-fit-content;
-  height: -moz-fit-content;
-  height: fit-content;
-  width: fit-content;
-  display: inline-flex;
+  font-size: 16px;
+  background-color: #f2f2f2;
+  outline: none;
+}
+
+.search-button {
+  padding: 10px 20px;
+  background-color: #67a381;
+  color: white;
+  border: none;
+  border-radius: 25px;
+  cursor: pointer;
+  margin-left: 10px;
+  font-size: 16px;
+  transition: background-color 0.3s ease;
+  outline: none;
+}
+
+.search-button:hover {
+  background-color: black;
+}
+
+.search-button:focus {
+  outline: none;
+}
+
+
+    .details-container {
+      
+      margin-top: -300px;
+    margin-left: 600px;
+    margin-bottom: 200px;
+    }
+
+    .details {
+      padding: 16px;
+      border-radius: 4px;
+      justify-content: center;
+    }
+
+    .details h3 {
+      margin-top: 0;
+    }
+
+    .status {
+      margin-top: 10px;
+    }
+
+    .block-button{
+      padding: 8px 16px;
+      background-color: #f44336;
+      color: white;
+      border: none;
+      border-radius: 4px;
+      cursor: pointer;
+      margin-top: 10px;
+    }
+    .unblock-button {
+      padding: 8px 16px;
+      background-color: green;
+      color: white;
+      border: none;
+      border-radius: 4px;
+      cursor: pointer;
+      margin-top: 10px;
+    }
+    .header{
+      margin-top: 50px;
+      margin-left: 530px;
+      margin-bottom: 100px;
+    } .notifications {
+        position: fixed;
+      top: 5px;
+      right: 20px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      width: 30px;
+      height: 30px;
+      background-color : transparent;
+      color: #fff;
+      border-radius: 50%;
+      cursor: pointer;
+    }
+    
+    .badge {
+      position: absolute;
+      top: -5px;
+      right: -3px;
+      background-color: red;
+      color: #fff;
+      width: 15px;
+      height: 15px;
+      border-radius: 50%;
+      text-align: center;
+      line-height: 10px;
+      font-size: 10px;
+    }
+    
+    .dropdown {
+      position: absolute;
+      top: 45px;
+      right: 0;
+      width: 600px;
+      background-color: #67a381;
+      border: 1px solid #ddd;
+      border-radius: 4px;
+      display: none;
+      z-index: 1;
+    }
+    
+    .dropdown a {
+      color: white;
+      padding: 12px 16px;
+      text-decoration: none;
+      display: block;
+    }
+    
+     .dropdown a:hover {
+      background-color: black;
+      box-shadow: 0px 3px 20px 0px black;
+  transform: scale(1.0);
+    }
+    
+    .notifications:hover .dropdown {
+      display: block;
+    } 
+    .navbar {
+      position: fixed;
+      top: 0;
+      left: -250px; /* Initially hidden off the screen */
+      width: 250px;
+      height: 100vh;
+      background-color:#67a381;
+      color: #fff;
+      transition: left 0.3s ease;
+    }
+    
+    .navbar.open {
+      left: 0; /* Slides in from the left when open class is applied */
+    }
+    
+    .navbar ul {
+      list-style-type: none;
+      margin: 0;
+      padding: 0;
+      overflow: hidden;
+    }
+    
+    .navbar li {
+      text-align: left;
+    }
+    
+    .navbar li a {
+      display: block;
+      color: white;
+      padding: 14px 16px;
+      text-decoration: none;
+    }
+    
+    .navbar li a:hover {
+      background-color: #111;
+      box-shadow: 0px 3px 20px 0px black;
+  transform: scale(1.0);
+
+    }
+    .openbtn {
+    position: fixed;
+      top: 3px;
+      left: 10px;
+      background-color: transparent;
+      color: #111;
+      padding: 10px 15px;
+      font-size: 20px;
+      border: none;
+      cursor: pointer;
+    }
+    .menu-bar {
+    height: 50px;
+
+  
+  width: 100%;
+  display: flex;
+  /* position: fixed; */
   background-color: #67a381;
   -webkit-backdrop-filter: blur(10px);
   backdrop-filter: blur(10px);
   align-items: center;
-  padding: 0;
+ 
   margin: 0;
   justify-content: center;
   left: 50%;
-  top:5%;
- transform: translateY(5%);
-  transform: translateX(85%);
+  top: -100px;
 }
 .menu-bar li {
   list-style: none;
@@ -214,63 +383,135 @@
       text-decoration: none;
       color: inherit;
     }
-    .logo {
-  position: absolute;
-  top: 10px;
-  left: 10px;
-}
-
-.logo-image {
-  height: 100px;
-  width: 100px;
-}
-
+    .logo{
+        left: 630px;
+        top: -25px;
+        position: fixed;
+    }
+   
+    
+    h1 {
+      color: #333;
+      font-size: 32px;
+      margin-bottom: 30px;
+    }
+    
+    .option-buttons {
+      display: flex;
+      justify-content: center;
+      flex-wrap: wrap;
+      margin-top: 40px;
+    }
+    
+    .option-button {
+      display: inline-block;
+      padding: 16px 32px;
+      margin: 10px;
+      font-size: 20px;
+      font-weight: bold;
+      text-decoration: none;
+      color: #fff;
+      background-color: #67a381;
+      border: none;
+      border-radius: 30px;
+      transition: background-color 0.3s, transform 0.3s;
+      box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    }
+    
+    .option-button:hover {
+      background-color: black;
+      transform: scale(1.05);
+    }
   </style>
 </head>
 <body>
-  <!-- Navigation bar -->
-  <!-- <div class="navbar">
-    <a href="#">Home</a>
-    <a href="#">About Us</a>
-    <a href="#">Contact Us</a>
-    <a href="#">Sign Up</a>
-    <a href="#">Login</a>
-  </div> -->
-  <div class="top-section">
-    
-  <ul class="menu-bar">
-    <li>Home</li>
-    <li onclick="scrollToSection('contact')">Contact us</li>
-    <li onclick="scrollToSection('about')">About us</li>
-    <li><a href="Sign_up.html">Sign up</a></li>
-    <li><a href="Login.html">Log in</a></li>
-   
-  </ul>
-  
-  <!-- Top section -->
-  </div>
-  
-  <!-- Main content -->
-  <div class="main-content">
-    <div class="about-us" id="about">
-      <h2 class="header">About Us</h2>
-      <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nullam in dui mauris. Curabitur ultricies purus ac ultrices pulvinar. Sed vulputate vestibulum ante, eu maximus purus lobortis vitae. Quisque facilisis augue ac fermentum condimentum. Etiam vitae tincidunt lectus.</p>
+
+    <ul class="menu-bar">
+        <div class="logo">
+            <a href="admin.html">
+            <img src="img/logo.png" style="width: 150px; height:100px; ">
+        </a>
+        </div>
+        <div class="notifications" id="notifications" >
+            <span class="badge">3</span>
+            <img src="img/bell.png" alt="Notification Bell" style="width: 35px; height: 30px" >
+            <div class="dropdown" id="dropdown">
+                <a href="#">you recieved 40 Technical issues.</a>
+                <a href="#"> there is 50 logins today.</a>
+                <a href="#">you received 20 registers needs to check authorization.</a>
+            </div>
+          </div>
+        <li></li>
+        
+       
+       
+        <button id="openbtn" class="openbtn" onclick="toggleNavbar()">&#9776; </button>
+        <div id="navbar" class="navbar">
+          <ul>       
+            <li><a href="authorization.html"> Validate authorization</a></li>
+            <li><a href="history.html"> History </a></li>
+              <li><a href="resolve_technical_issue.html"> Technical issues</a></li>
+              <li><a href="block_client.html"> Block A Client</a></li>
+        
+          </ul>
+        </div>
+      </ul>
+      <div class="container">
+        <div class="card">
+            <div class="card-inner">
+                <div class="front">
+                    <img src="https://i.ibb.co/PYss3yv/map.png" class="map-img">
+                    <div class="row">
+                        <img src="https://i.ibb.co/G9pDnYJ/chip.png" width="60px">
+                        <img src="https://i.ibb.co/WHZ3nRJ/visa.png" width="60px">
+                    </div>
+                    <div class="row card-no">
+                        <p>XXXX</p>
+                        <p>XXXX</p>
+                        <p>XXXX</p>
+                        <p>6420</p>
+                    </div>
+                    <div class="row card-holder">
+                        <p>CARD HPLDER</p>
+                        <p>VALID TILL</p>
+                    </div>
+                    <div class="row name">
+                        <p>JOE ALISON</p>
+                        <p>10 / 25</p>
+                    </div>
+                </div>
+                <div class="back">
+                    <img src="https://i.ibb.co/PYss3yv/map.png" class="map-img">
+                    <div class="bar"></div>
+                    <div class="row card-cvv">
+                        <div>
+                            <img src="https://i.ibb.co/S6JG8px/pattern.png">
+                        </div>
+                        <p>XX4</p>
+                    </div>
+                    <div class="row card-text">
+                     
+                    </div>
+                    <div class="row signature">
+                        <p>CUSTOMER SIGNATURE</p>
+                        <img src="https://i.ibb.co/WHZ3nRJ/visa.png" width="80px">
+                    </div>
+                </div>
+            </div>
+        </div>
     </div>
-    
-    <div class="contact-us" id="contact">
-      <h2>Contact Us</h2>
-      <p>Email: info@example.com</p>
-      <p>Phone: 123-456-7890</p>
-      <p>Address: 123 Street, City, Country</p>
-    </div>
-  </div>
-  
-  <!-- Footer -->
-  <!-- <div class="footer">
-    <img src="path/to/your/logo.png" alt="Logo">
-    <a href="#">Careers</a>
-    <a href="#">FAQs</a>
-  </div> -->
+      <div class="container">
+        <h1>Credit Card Options</h1>
+        
+        <div class="option-buttons">
+          <a href="card_details.html" class="option-button">View Card Details</a>
+          <a href="points.html" class="option-button">View Credit Card Points</a>
+          <a href="card_bill.html" class="option-button">Pay for Credit Card Bill</a>
+          
+        </div>
+      </div>
+
+
   <div class="footer-clean">
     <footer>
         <div class="container">
@@ -306,14 +547,83 @@
         </div>
     </footer>
 </div>
-<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.1.3/js/bootstrap.bundle.min.js"></script>
 <script>
-     function scrollToSection(sectionId) {
-      var section = document.getElementById(sectionId);
-      section.scrollIntoView({ behavior: 'smooth' });
-    }
-</script>
+  document.getElementById("credit-card-form").addEventListener("submit", function(event) {
+      event.preventDefault();
+      
+     
+      
+      // Perform login process here
+     
+  
+     
+        alert("Application is submitted successfully!");
+        window.location.href='Client_home.html';
+        
+    });
+    </script>
+  <script>
+    function searchClient() {
+      var searchInput = document.getElementById("searchInput").value;
+      // Perform client search based on the bank account number
+      // You can replace the below dummy data with your logic to fetch client details from a database or API
+      var clientData = {
+        name: "John Doe",
+        account: "1234 5678 9011 4445",
+        status: "Unblocked"
+      };
+     
+      
 
+      if (searchInput === clientData.account) {
+        // Display client details and status
+        document.getElementById("clientName").textContent = "Name: " + clientData.name;
+        document.getElementById("clientAccount").textContent = "Account: " + clientData.account;
+        document.getElementById("clientStatus").textContent = clientData.status;
+        document.getElementById("detailsContainer").style.display = "block";
+      } else {
+        // Clear client details and hide the details container
+        document.getElementById("clientName").textContent = "";
+        document.getElementById("clientAccount").textContent = "";
+        document.getElementById("clientStatus").textContent = "";
+        document.getElementById("detailsContainer").style.display = "none";
+        alert("Client not found!");
+      }
+    }
+
+    function blockClient() {
+      
+if(document.getElementById("clientStatus").innerHTML==="Blocked"){
+  alert("Client is already blocked!");
+}else{
+      alert("Client blocked!");
+      document.getElementById("clientStatus").innerHTML="Blocked";}
+    }
+
+    function unblockClient() {
+      if(document.getElementById("clientStatus").innerHTML==="Unblocked"){
+  alert("Client is already unblocked!");
+}else{
+      alert("Client is  unblocked!");
+      document.getElementById("clientStatus").innerHTML="unBlocked";}
+    }
+  </script>
+   <script>
+    document.addEventListener('click', function(event) {
+      var navbar = document.getElementById('navbar');
+      var openbtn = document.getElementById('openbtn');
+      
+      if (!navbar.contains(event.target) && event.target !== openbtn) {
+        navbar.classList.remove('open');
+      }
+    });
+    function toggleNavbar() {
+      var navbar = document.getElementById('navbar');
+      navbar.classList.toggle('open');
+    }
+    </script>
+  
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.1.3/js/bootstrap.bundle.min.js"></script>
 </body>
 </html>
