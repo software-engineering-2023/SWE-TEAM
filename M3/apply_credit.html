@@ -8,6 +8,65 @@
       background: linear-gradient(to left,#e28bb5,#deccfc);
       
     }
+    .menu-bar {
+    height: 50px;
+
+  
+  width: 100%;
+  display: flex;
+  /* position: fixed; */
+  background-color: #67a381;
+  -webkit-backdrop-filter: blur(10px);
+  backdrop-filter: blur(10px);
+  align-items: center;
+ 
+  margin: 0;
+  justify-content: center;
+  left: 50%;
+  top: -100px;
+}
+.menu-bar li {
+  list-style: none;
+  color: white;
+  font-family: sans-serif;
+  font-weight: bold;
+  padding: 12px 16px;
+  margin: 0 8px;
+  position: relative;
+  cursor: pointer;
+  white-space: nowrap;
+}
+.menu-bar li::before {
+  content: " ";
+  position: absolute;
+  top: 0;
+  left: 0;
+  height: 100%;
+  width: 100%;
+  z-index: -1;
+  transition: 0.2s;
+  border-radius: 25px;
+}
+.menu-bar li:hover {
+  color: white;
+}
+.menu-bar li:hover::before {
+  background:black;
+  box-shadow: 0px 3px 20px 0px black;
+  transform: scale(1.2);
+} a{
+      color: white;
+      text-decoration: none;
+    }
+    a:hover{
+      text-decoration: none;
+      color: inherit;
+    }
+    .logo{
+        left: 630px;
+        top: -25px;
+        position: fixed;
+    }
     .container {
       max-width: 400px;
       margin: 0 auto;
@@ -43,9 +102,156 @@
     button:hover {
       background-color: #45a049;
     }
+    .notifications {
+        position: fixed;
+      top: 5px;
+      right: 20px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      width: 30px;
+      height: 30px;
+      background-color : transparent;
+      color: #fff;
+      border-radius: 50%;
+      cursor: pointer;
+    }
+    
+    .badge {
+      position: absolute;
+      top: -5px;
+      right: -3px;
+      background-color: red;
+      color: #fff;
+      width: 15px;
+      height: 15px;
+      border-radius: 50%;
+      text-align: center;
+      line-height: 10px;
+      font-size: 10px;
+    }
+    
+    .dropdown {
+      position: absolute;
+      top: 45px;
+      right: 0;
+      width: 600px;
+      background-color: #67a381;
+      border: 1px solid #ddd;
+      border-radius: 4px;
+      display: none;
+      z-index: 1;
+    }
+    
+    .dropdown a {
+      color: white;
+      padding: 12px 16px;
+      text-decoration: none;
+      display: block;
+    }
+    
+     .dropdown a:hover {
+      background-color: black;
+      box-shadow: 0px 3px 20px 0px black;
+  transform: scale(1.0);
+    }
+    
+    .notifications:hover .dropdown {
+      display: block;
+    } 
+    .navbar {
+      position: fixed;
+      top: 0;
+      left: -250px; /* Initially hidden off the screen */
+      width: 250px;
+      height: 100vh;
+      background-color:#67a381;
+      color: #fff;
+      transition: left 0.3s ease;
+    }
+    
+    .navbar.open {
+      left: 0; /* Slides in from the left when open class is applied */
+    }
+    
+    .navbar ul {
+      list-style-type: none;
+      margin: 0;
+      padding: 0;
+      overflow: hidden;
+    }
+    
+    .navbar li {
+      text-align: left;
+    }
+    
+    .navbar li a {
+      display: block;
+      color: white;
+      padding: 14px 16px;
+      text-decoration: none;
+    }
+    
+    .navbar li a:hover {
+      background-color: #111;
+      box-shadow: 0px 3px 20px 0px black;
+  transform: scale(1.0);
+
+    }
+    .openbtn {
+    position: fixed;
+      top: 3px;
+      left: 10px;
+      background-color: transparent;
+      color: #111;
+      padding: 10px 15px;
+      font-size: 20px;
+      border: none;
+      cursor: pointer;
+    }
   </style>
 </head>
 <body>
+
+  <ul class="menu-bar">
+    <div class="logo">
+        <a href="Client_home.html">
+        <img src="img/logo.png" style="width: 150px; height:100px; ">
+    </a>
+    </div>
+    <div class="notifications" id="notifications" >
+        <span class="badge">4</span>
+        <img src="img/bell.png" alt="Notification Bell" style="width: 35px; height: 30px" >
+        <div class="dropdown" id="dropdown">
+          <a href="#">A debit transaction of $100.00 has been made from your account on May 15, 2023. Please review the transaction details and contact us if you notice any unauthorized activity.</a>
+          <a href="#">  This is a reminder that your bill payment of $75.00 for your electricity bill is due on May 30, 2023. Please ensure that you have sufficient funds in your account to cover the payment by the due date.</a>
+          <a href="#"> We are pleased to inform you that the issue you reported regarding your credit card loss has been resolved and we accepted your request of issuing a new card. check your credit card section to view.</a>
+          <a href="#">We would like to inform you that our online banking system will be undergoing scheduled maintenance on June 15, 2023, from 10:00 PM to 2:00 AM (UTC). During this time, you may experience temporary unavailability of our online banking services. We apologize for any inconvenience caused and appreciate your understanding.</a>
+        </div>
+      </div>
+    <li></li>
+    <button id="openbtn" class="openbtn" onclick="toggleNavbar()">&#9776; </button>
+    <div id="navbar" class="navbar">
+      <ul>       
+        <li><a href="apply_credit.html">Apply For Credit Card</a></li>
+      <li><a href="credit_card.html">My Credit Card</a></li>
+  
+      <li><a href="apply_loan.html"> Apply For Loan</a></li>
+      <li><a href="myLoan.html"> View Loan</a></li>
+  
+      <li><a href="bank_acc.html">Bank Account</a></li>
+     
+      <li><a href="services.html">Services</a></li>
+      <li><a href="send_money.html">Transfer </a></li>
+      <li><a href="report.html">Report Issue</a></li>
+      <li><a href="client_card_replacement.html">Request Credit Card Replacement</a></li>
+      <li><a href="transactions.html">View Transactions</a></li>
+  
+      <li><a href="reminders.html">Set Reminders</a></li>
+  
+      </ul>
+    </div>
+  </ul>
   <div class="container">
     <h2>Apply for Credit Card</h2>
     <form id="credit-card-form">
