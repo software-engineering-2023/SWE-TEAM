@@ -402,6 +402,7 @@ header{
 
   <ul class="menu-bar">
     <div class="logo">
+      <div class="back-arrow" onclick="goBack()"></div>
         <a href="Banker_home.html">
         <img src="img/logo.png" style="width: 150px; height:100px; margin-left: 40px;">
     </a>
@@ -410,9 +411,9 @@ header{
         <span class="badge">3</span>
         <img src="img/bell.png" alt="Notification Bell" style="width: 35px; height: 30px" >
         <div class="dropdown" id="dropdown">
-            <a href="#">you recieved 40 Technical issues.</a>
-            <a href="#"> there is 50 logins today.</a>
-            <a href="#">you received 20 registers needs to check authorization.</a>
+          <a href="#">  <strong> account balance alerts </strong> :  The account balance of John Doe has fallen below the specified threshold. Please review the client's account activity and take appropriate actions if necessary.</a>
+          <a href="#">you have received new loan requests, please review your loan requests.</a>
+          <a href="#">you have received 50 credit card requests.</a>
         </div>
       </div>
     <li></li>
@@ -551,6 +552,12 @@ header{
       navbar.classList.toggle('open');
     }
     </script>
+    <script>
+      function goBack() {
+        window.history.back();
+      }
+    </script>
+    
 
 </body>
 </html>

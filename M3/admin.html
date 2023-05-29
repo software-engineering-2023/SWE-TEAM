@@ -309,6 +309,25 @@
         top: -15px;
         position: fixed;
     }
+    .back-arrow {
+      display: flex;
+      width: 20px;
+      height: 50px;
+      position:fixed;
+      border-radius: 50%;
+      text-align: center;
+      cursor: pointer;
+      margin-top: -55px;
+      margin-left: -1400px;
+      color: black;
+    }
+
+    .back-arrow:before {
+      content: '\2190'; /* Unicode character for left arrow */
+      font-size: 40px;
+      line-height: 100px;
+      color: black;
+    }
 
   </style>
   <script>
@@ -355,6 +374,7 @@
   
   <div class="top-section">
   <ul class="menu-bar">
+    <div class="back-arrow" onclick="goBack()"></div>
     <div class="logo">
         <a href="admin.html">
         <img src="img/logo.png" style="width: 150px; height:75px; ">
@@ -380,6 +400,7 @@
         <li><a href="history.html"> History </a></li>
           <li><a href="resolve_technical_issue.html"> Technical issues</a></li>
           <li><a href="block_client.html"> Block A Client</a></li>
+          <li><a href="adminAnnouncement.html"> Block A Client</a></li>
     
       </ul>
     </div>
@@ -453,6 +474,11 @@
       section.scrollIntoView({ behavior: 'smooth' });
     }
     
+</script>
+<script>
+  function goBack() {
+    window.history.back();
+  }
 </script>
 
 </body>

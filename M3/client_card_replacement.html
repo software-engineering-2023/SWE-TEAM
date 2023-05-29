@@ -360,6 +360,7 @@
 
   <ul class="menu-bar">
     <div class="logo">
+      <div class="back-arrow" onclick="goBack()"></div>
         <a href="Client_home.html">
         <img src="img/logo.png" style="width: 150px; height:100px; ">
     </a>
@@ -481,5 +482,11 @@
     navbar.classList.toggle('open');
   }
   </script>
+  <script>
+    function goBack() {
+      window.history.back();
+    }
+  </script>
+  
 </body>
 </html>
