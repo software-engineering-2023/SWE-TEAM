@@ -1,18 +1,364 @@
 <!DOCTYPE html>
 <html>
 <head>
-  <title>Problem Solver</title>
+  <title>Client Search - Admin Panel</title>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.1.3/css/bootstrap.min.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/ionicons/2.0.1/css/ionicons.min.css">
+  <link rel="stylesheet" href="assets/css/style.css">
   <style>
-    /* CSS Styling */
     body {
-      font-family: 'Arial', sans-serif;
-      background-image: linear-gradient(to left, #e28db7, #ebe1fc);
-      color: #fff;
-      margin: 0;
-      padding: 20px;
+      font-family: Arial, sans-serif;
+      background:linear-gradient(to left,#e28bb5,#deccfc);
+    }
+    .footer {
+      background-color: #333;
+      color: white;
+      text-align: center;
+      
+      padding-top: 100px;
+      margin-top: 100px;
+    }
+    
+    .footer a {
+      color: white;
+      text-decoration: none;
+      margin: 0 10px;
+    }
+    .footer-clean {
+  padding:50px 0;
+  background-color: #67a381;
+  color:white;
+  
+  bottom: 0;
+  width: 100%;
+}
+
+.footer-clean h3 {
+  margin-top:0;
+  margin-bottom:12px;
+  font-weight:bold;
+  font-size:16px;
+}
+
+.footer-clean ul {
+  padding:0;
+  list-style:none;
+  line-height:1.6;
+  font-size:14px;
+  margin-bottom:0;
+}
+
+.footer-clean ul a {
+  color:inherit;
+  text-decoration:none;
+  opacity:0.8;
+}
+
+.footer-clean ul a:hover {
+  opacity:1;
+}
+
+.footer-clean .item.social {
+  text-align:right;
+}
+
+@media (max-width:767px) {
+  .footer-clean .item {
+    text-align:center;
+    padding-bottom:20px;
+  }
+}
+
+@media (max-width: 768px) {
+  .footer-clean .item.social {
+    text-align:center;
+  }
+}.footer-clean .item.social > a {
+  font-size:24px;
+  width:40px;
+  height:40px;
+  line-height:40px;
+  display:inline-block;
+  text-align:center;
+  border-radius:50%;
+  border:1px solid #ccc;
+  margin-left:10px;
+  margin-top:22px;
+  color:inherit;
+  opacity:0.75;
+}
+
+.footer-clean .item.social > a:hover {
+  opacity:0.9;
+}
+
+@media (max-width:991px) {
+  .footer-clean .item.social > a {
+    margin-top:40px;
+  }
+}
+
+@media (max-width:767px) {
+  .footer-clean .item.social > a {
+    margin-top:10px;
+  }
+}
+
+.footer-clean .copyright {
+  margin-top:14px;
+  margin-bottom:0;
+  font-size:13px;
+  opacity:0.6;
+}
+
+    .search-container {
+        margin-bottom: 400px;
+  margin-top: 20px;
+  display: flex;
+  justify-content: center;
+}
+
+.search-input {
+  width: 300px;
+  padding: 10px;
+  border: none;
+  border-radius: 25px;
+  font-size: 16px;
+  background-color: #f2f2f2;
+  outline: none;
+}
+
+.search-button {
+  padding: 10px 20px;
+  background-color: #67a381;
+  color: white;
+  border: none;
+  border-radius: 25px;
+  cursor: pointer;
+  margin-left: 10px;
+  font-size: 16px;
+  transition: background-color 0.3s ease;
+  outline: none;
+}
+
+.search-button:hover {
+  background-color: black;
+}
+
+.search-button:focus {
+  outline: none;
+}
+
+
+    .details-container {
+      
+      margin-top: -300px;
+    margin-left: 600px;
+    margin-bottom: 200px;
     }
 
-    h1 {
+    .details {
+      padding: 16px;
+      border-radius: 4px;
+      justify-content: center;
+    }
+
+    .details h3 {
+      margin-top: 0;
+    }
+
+    .status {
+      margin-top: 10px;
+    }
+
+    .block-button{
+      padding: 8px 16px;
+      background-color: #f44336;
+      color: white;
+      border: none;
+      border-radius: 4px;
+      cursor: pointer;
+      margin-top: 10px;
+    }
+    .unblock-button {
+      padding: 8px 16px;
+      background-color: green;
+      color: white;
+      border: none;
+      border-radius: 4px;
+      cursor: pointer;
+      margin-top: 10px;
+    }
+    .header{
+      margin-top: 50px;
+      margin-left: 530px;
+      margin-bottom: 100px;
+    } .notifications {
+        position: fixed;
+      top: 5px;
+      right: 20px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      width: 30px;
+      height: 30px;
+      background-color : transparent;
+      color: #fff;
+      border-radius: 50%;
+      cursor: pointer;
+    }
+    
+    .badge {
+      position: absolute;
+      top: -5px;
+      right: -3px;
+      background-color: red;
+      color: #fff;
+      width: 15px;
+      height: 15px;
+      border-radius: 50%;
+      text-align: center;
+      line-height: 10px;
+      font-size: 10px;
+    }
+    
+    .dropdown {
+      position: absolute;
+      top: 45px;
+      right: 0;
+      width: 600px;
+      background-color: #67a381;
+      border: 1px solid #ddd;
+      border-radius: 4px;
+      display: none;
+      z-index: 1;
+    }
+    
+    .dropdown a {
+      color: white;
+      padding: 12px 16px;
+      text-decoration: none;
+      display: block;
+    }
+    
+     .dropdown a:hover {
+      background-color: black;
+      box-shadow: 0px 3px 20px 0px black;
+  transform: scale(1.0);
+    }
+    
+    .notifications:hover .dropdown {
+      display: block;
+    } 
+    .navbar {
+      position: fixed;
+      top: 0;
+      left: -250px; /* Initially hidden off the screen */
+      width: 250px;
+      height: 100vh;
+      background-color:#67a381;
+      color: #fff;
+      transition: left 0.3s ease;
+    }
+    
+    .navbar.open {
+      left: 0; /* Slides in from the left when open class is applied */
+    }
+    
+    .navbar ul {
+      list-style-type: none;
+      margin: 0;
+      padding: 0;
+      overflow: hidden;
+    }
+    
+    .navbar li {
+      text-align: left;
+    }
+    
+    .navbar li a {
+      display: block;
+      color: white;
+      padding: 14px 16px;
+      text-decoration: none;
+    }
+    
+    .navbar li a:hover {
+      background-color: #111;
+      box-shadow: 0px 3px 20px 0px black;
+  transform: scale(1.0);
+
+    }
+    .openbtn {
+    position: fixed;
+      top: 3px;
+      left: 10px;
+      background-color: transparent;
+      color: #111;
+      padding: 10px 15px;
+      font-size: 20px;
+      border: none;
+      cursor: pointer;
+    }
+    .menu-bar {
+    height: 50px;
+
+  
+  width: 100%;
+  display: flex;
+  /* position: fixed; */
+  background-color: #67a381;
+  -webkit-backdrop-filter: blur(10px);
+  backdrop-filter: blur(10px);
+  align-items: center;
+ 
+  margin: 0;
+  justify-content: center;
+  left: 50%;
+  top: -100px;
+}
+.menu-bar li {
+  list-style: none;
+  color: white;
+  font-family: sans-serif;
+  font-weight: bold;
+  padding: 12px 16px;
+  margin: 0 8px;
+  position: relative;
+  cursor: pointer;
+  white-space: nowrap;
+}
+.menu-bar li::before {
+  content: " ";
+  position: absolute;
+  top: 0;
+  left: 0;
+  height: 100%;
+  width: 100%;
+  z-index: -1;
+  transition: 0.2s;
+  border-radius: 25px;
+}
+.menu-bar li:hover {
+  color: white;
+}
+.menu-bar li:hover::before {
+  background:black;
+  box-shadow: 0px 3px 20px 0px black;
+  transform: scale(1.2);
+} a{
+      color: white;
+      text-decoration: none;
+    }
+    a:hover{
+      text-decoration: none;
+      color: inherit;
+    }
+    .logo{
+        left: 630px;
+        top: -25px;
+        position: fixed;
+    }h1 {
       text-align: center;
       font-size: 36px;
       margin-bottom: 40px;
@@ -74,44 +420,108 @@
   </style>
 </head>
 <body>
-  <h1>Problems to be solved</h1>
 
-  <div class="problem-card" id="row-1">
-    <h2 class="problem-title">Issue 1</h2>
-    <div class="client-info-container">
-        <p class="client-info">
-          <strong>Name:</strong> John Smith<br>
-          <strong>Account Number:</strong> 123456789<br>
-          <strong>Email:</strong> johnsmith@example.com<br>
-        </p>
+    <ul class="menu-bar">
+        <div class="logo">
+            <a href="admin.html">
+            <img src="img/logo.png" style="width: 150px; height:100px; ">
+        </a>
+        </div>
+        <div class="notifications" id="notifications" >
+            <span class="badge">3</span>
+            <img src="img/bell.png" alt="Notification Bell" style="width: 35px; height: 30px" >
+            <div class="dropdown" id="dropdown">
+                <a href="#">you recieved 40 Technical issues.</a>
+                <a href="#"> there is 50 logins today.</a>
+                <a href="#">you received 20 registers needs to check authorization.</a>
+            </div>
+          </div>
+        <li></li>
+        
+       
+       
+        <button id="openbtn" class="openbtn" onclick="toggleNavbar()">&#9776; </button>
+        <div id="navbar" class="navbar">
+          <ul>       
+            
+            <li><a href="history.html"> History </a></li>
+              <li><a href="resolve_technical_issue.html"> Technical issues</a></li>
+              <li><a href="block_client.html"> Block A Client</a></li>
+        
+          </ul>
+        </div>
+      </ul>
+      <h1>Problems to be solved</h1>
+
+      <div class="problem-card" id="row-1">
+        <h2 class="problem-title">Issue 1</h2>
+        <div class="client-info-container">
+            <p class="client-info">
+              <strong>Name:</strong> John Smith<br>
+              <strong>Account Number:</strong> 123456789<br>
+              <strong>Email:</strong> johnsmith@example.com<br>
+            </p>
+          </div>
+          <div class="issue-description-container">
+            <p class="issue-description">
+               <strong> Title:</strong> Login Problems<br>
+               <strong> Description:</strong> I'm having trouble logging into my online banking account. Every time I enter my username and password, it keeps giving me an error message. <br>
+            </p>
+          </div><button class="solve-button" onclick="solve(1)">Solve</button>
       </div>
-      <div class="issue-description-container">
-        <p class="issue-description">
-           <strong> Title:</strong> Login Problems<br>
-           <strong> Description:</strong> I'm having trouble logging into my online banking account. Every time I enter my username and password, it keeps giving me an error message. <br>
-        </p>
-      </div><button class="solve-button" onclick="solve(1)">Solve</button>
-  </div>
-  <div class="problem-card" id="row-2">
-    <h2 class="problem-title">Issue 2</h2>
-    <div class="client-info-container">
-        <p class="client-info">
-          <strong>Name:</strong> Jane Doe<br>
-        <strong>Account Number:</strong> 987654321<br>
-        <strong>Email:</strong> janedoe@example.com<br>
-        </p>
+      <div class="problem-card" id="row-2">
+        <h2 class="problem-title">Issue 2</h2>
+        <div class="client-info-container">
+            <p class="client-info">
+              <strong>Name:</strong> Jane Doe<br>
+            <strong>Account Number:</strong> 987654321<br>
+            <strong>Email:</strong> janedoe@example.com<br>
+            </p>
+          </div>
+          <div class="issue-description-container">
+            <p class="issue-description">
+              <strong> Title: </strong> Account Access Restrictions<br>
+              <strong> Description:</strong> I'm trying to view my credit card points. The button is grayed out. <br>
+            </p>
+          </div><button class="solve-button" onclick="solve(2)">Solve</button>
       </div>
-      <div class="issue-description-container">
-        <p class="issue-description">
-          <strong> Title: </strong> Account Access Restrictions<br>
-          <strong> Description:</strong> I'm trying to view my credit card points. The button is grayed out. <br>
-        </p>
-      </div><button class="solve-button" onclick="solve(2)">Solve</button>
-  </div>
 
 
-
-
+  <div class="footer-clean">
+    <footer>
+        <div class="container">
+            <div class="row justify-content-center">
+                <div class="col-sm-4 col-md-3 item">
+                    <h3>Services</h3>
+                    <ul>
+                        <li><a href="#">Web design</a></li>
+                        <li><a href="#">Development</a></li>
+                        <li><a href="#">Hosting</a></li>
+                    </ul>
+                </div>
+                <div class="col-sm-4 col-md-3 item">
+                    <h3>About</h3>
+                    <ul>
+                        <li><a href="#">Company</a></li>
+                        <li><a href="#">Team</a></li>
+                        <li><a href="#">Legacy</a></li>
+                    </ul>
+                </div>
+                <div class="col-sm-4 col-md-3 item">
+                    <h3>Careers</h3>
+                    <ul>
+                        <li><a href="#">Job openings</a></li>
+                        <li><a href="#">Employee success</a></li>
+                        <li><a href="#">Benefits</a></li>
+                    </ul>
+                </div>
+                <div class="col-lg-3 item social"><a href="#"><i class="icon ion-social-facebook"></i></a><a href="#"><i class="icon ion-social-twitter"></i></a><a href="#"><i class="icon ion-social-snapchat"></i></a><a href="#"><i class="icon ion-social-instagram"></i></a>
+                    <p class="copyright">Company Name © 2018</p>
+                </div>
+            </div>
+        </div>
+    </footer>
+</div>
 <script>
   function solve(requestId){
 
@@ -124,7 +534,68 @@
       alert(message);
     }
 </script>
-  
+  <script>
+    function searchClient() {
+      var searchInput = document.getElementById("searchInput").value;
+      // Perform client search based on the bank account number
+      // You can replace the below dummy data with your logic to fetch client details from a database or API
+      var clientData = {
+        name: "John Doe",
+        account: "1234 5678 9011 4445",
+        status: "Unblocked"
+      };
+     
+      
 
+      if (searchInput === clientData.account) {
+        // Display client details and status
+        document.getElementById("clientName").textContent = "Name: " + clientData.name;
+        document.getElementById("clientAccount").textContent = "Account: " + clientData.account;
+        document.getElementById("clientStatus").textContent = clientData.status;
+        document.getElementById("detailsContainer").style.display = "block";
+      } else {
+        // Clear client details and hide the details container
+        document.getElementById("clientName").textContent = "";
+        document.getElementById("clientAccount").textContent = "";
+        document.getElementById("clientStatus").textContent = "";
+        document.getElementById("detailsContainer").style.display = "none";
+        alert("Client not found!");
+      }
+    }
+
+    function blockClient() {
+      
+if(document.getElementById("clientStatus").innerHTML==="Blocked"){
+  alert("Client is already blocked!");
+}else{
+      alert("Client blocked!");
+      document.getElementById("clientStatus").innerHTML="Blocked";}
+    }
+
+    function unblockClient() {
+      if(document.getElementById("clientStatus").innerHTML==="Unblocked"){
+  alert("Client is already unblocked!");
+}else{
+      alert("Client is  unblocked!");
+      document.getElementById("clientStatus").innerHTML="unBlocked";}
+    }
+  </script>
+   <script>
+    document.addEventListener('click', function(event) {
+      var navbar = document.getElementById('navbar');
+      var openbtn = document.getElementById('openbtn');
+      
+      if (!navbar.contains(event.target) && event.target !== openbtn) {
+        navbar.classList.remove('open');
+      }
+    });
+    function toggleNavbar() {
+      var navbar = document.getElementById('navbar');
+      navbar.classList.toggle('open');
+    }
+    </script>
+  
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.1.3/js/bootstrap.bundle.min.js"></script>
 </body>
 </html>
