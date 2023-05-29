@@ -1,11 +1,13 @@
 <!DOCTYPE html>
 <html>
 <head>
-  <title>Transfer Money</title>
+  <title>Online Banking Dashboard</title>
 
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.1.3/css/bootstrap.min.css">
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/ionicons/2.0.1/css/ionicons.min.css">
   <link rel="stylesheet" href="assets/css/style.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta2/css/all.min.css">
+  
   
   <style>
     body {
@@ -168,7 +170,7 @@
       color: inherit;
     }
     .logo{
-        left: 630px;
+        left: 530px;
         top: -25px;
         position: fixed;
     }
@@ -260,7 +262,6 @@
       color: white;
       padding: 14px 16px;
       text-decoration: none;
-      
     }
     
     .navbar li a:hover {
@@ -282,49 +283,62 @@
       cursor: pointer;
      
     }
-
-
-
+  
  
-    
     .container {
-      max-width: 400px;
-      /* margin: 0 auto; */
+      max-width: 600px;
       margin-top: 100px;
       margin-bottom: 200px;
+      background-color: rgba(255, 255, 255, 0.65);
       padding: 20px;
-      background-color: #fff;
-      border-radius: 5px;
-      box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+      border-radius: 8px;
+      box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
     }
+
     h2 {
+      color: #333333;
+      margin-bottom: 20px;
+      margin-left: 80px;
+    }
+
+    .button-container {
+      display: flex;
+      justify-content: space-between;
+      margin-top: 40px;
+    }
+
+    .button {
+      width: 500px;
+      height: 600px;
+      background-color:#67a381;
+      margin-right: 20px ;
+      color: #ffffff;
+      border-radius: 8px;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
       text-align: center;
-    }
-    label {
-      display: block;
-      margin-bottom: 5px;
-    }
-    input[type="text"],
-    input[type="number"],
-    button {
-      width: 100%;
-      padding: 10px;
-      margin-bottom: 10px;
-      border: 1px solid #ccc;
-      border-radius: 3px;
-      box-sizing: border-box;
-    }
-    button {
-      background-color: #4CAF50;
-      color: #fff;
       cursor: pointer;
+      transition: background-color 0.3s;
     }
-    button:hover {
-      background-color: #45a049;
+
+    .button:hover {
+      background-color: black;
+    }
+
+    .button-icon {
+      font-size: 48px;
+      margin-bottom: 16px;
+    }
+
+    .button-label {
+      font-size: 18px;
     }
   </style>
 </head>
 <body>
+
 
   <ul class="menu-bar">
     <div class="logo">
@@ -367,31 +381,84 @@
   </ul>
 
 
-
-
   <div class="container">
-    <h2>Transfer Money Internally</h2>
-    <form id="transfer-money-form">
-   
-      <label for="recipient-bank-number">Recipient's Bank Number:</label>
-      <input type="text" id="recipient-bank-number" required>
+    <h2>    Choose the type of transfer</h2>
+    <div class="button-container">
+        <div class="button" onclick="redirect('internal')">
+          <!-- <span class="button-icon">&#x1F6A7;</span> -->
+          <span class="button-icon"><i class="fas fa-university"></i></span>
+          <span class="button-label">Internal</span>
+        </div>
+        <div class="button" onclick="redirect('domestic')">
+          <span class="button-icon">&#x1F3E0;</span>
+          <span class="button-label">Domestic</span>
+        </div>
+        <div class="button" onclick="redirect('international')">
+          <span class="button-icon">&#x1F30E;</span>
+          <span class="button-label">International</span>
+        </div>
+      </div>
       
-      <label for="recipient-name">Recipient's Full Name:</label>
-      <input type="text" id="recipient-name" required>
-      
-      
-      <label for="recipient-phone">Recipient's Phone Number:</label>
-      <input type="text" id="recipient-phone" required>
-      
-      <label for="amount">Amount:</label>
-      <input type="number" id="amount" min="0" required>
-      
-      <button type="submit">Transfer</button>
-    </form>
+    </div>
   </div>
-
-
   <script>
+    function redirect(type){
+      if(type ==='internal'){
+
+      window.location.href="send_money.html";
+    }
+    else if(type ==='domestic'){
+      window.location.href="domestic.html";
+    }
+    else if(type === 'international'){
+      window.location.href="international.html";
+    }
+    }
+  
+  </script>
+   </script>
+  
+   <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+   <script src="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.1.3/js/bootstrap.bundle.min.js"></script>
+   
+   
+   <div class="footer-clean">
+     <footer>
+         <div class="container1">
+             <div class="row justify-content-center">
+                 <div class="col-sm-4 col-md-3 item">
+                     <h3>Services</h3>
+                     <ul>
+                         <li><a href="#">Web design</a></li>
+                         <li><a href="#">Development</a></li>
+                         <li><a href="#">Hosting</a></li>
+                     </ul>
+                 </div>
+                 <div class="col-sm-4 col-md-3 item">
+                     <h3>About</h3>
+                     <ul>
+                         <li><a href="#">Company</a></li>
+                         <li><a href="#">Team</a></li>
+                         <li><a href="#">Legacy</a></li>
+                     </ul>
+                 </div>
+                 <div class="col-sm-4 col-md-3 item">
+                     <h3>Careers</h3>
+                     <ul>
+                         <li><a href="#">Job openings</a></li>
+                         <li><a href="#">Employee success</a></li>
+                         <li><a href="#">Benefits</a></li>
+                     </ul>
+                 </div>
+                 <div class="col-lg-3 item social"><a href="#"><i class="icon ion-social-facebook"></i></a><a href="#"><i class="icon ion-social-twitter"></i></a><a href="#"><i class="icon ion-social-snapchat"></i></a><a href="#"><i class="icon ion-social-instagram"></i></a>
+                     <p class="copyright">Company Name © 2018</p>
+                 </div>
+             </div>
+         </div>
+     </footer>
+   </div>
+   
+   <script>
     document.addEventListener('click', function(event) {
       var navbar = document.getElementById('navbar');
       var openbtn = document.getElementById('openbtn');
@@ -404,49 +471,7 @@
       var navbar = document.getElementById('navbar');
       navbar.classList.toggle('open');
     }
-    </script>
-  
-<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
-<script src="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.1.3/js/bootstrap.bundle.min.js"></script>
-
-
-<div class="footer-clean">
-  <footer>
-      <div class="container1">
-          <div class="row justify-content-center">
-              <div class="col-sm-4 col-md-3 item">
-                  <h3>Services</h3>
-                  <ul>
-                      <li><a href="#">Web design</a></li>
-                      <li><a href="#">Development</a></li>
-                      <li><a href="#">Hosting</a></li>
-                  </ul>
-              </div>
-              <div class="col-sm-4 col-md-3 item">
-                  <h3>About</h3>
-                  <ul>
-                      <li><a href="#">Company</a></li>
-                      <li><a href="#">Team</a></li>
-                      <li><a href="#">Legacy</a></li>
-                  </ul>
-              </div>
-              <div class="col-sm-4 col-md-3 item">
-                  <h3>Careers</h3>
-                  <ul>
-                      <li><a href="#">Job openings</a></li>
-                      <li><a href="#">Employee success</a></li>
-                      <li><a href="#">Benefits</a></li>
-                  </ul>
-              </div>
-              <div class="col-lg-3 item social"><a href="#"><i class="icon ion-social-facebook"></i></a><a href="#"><i class="icon ion-social-twitter"></i></a><a href="#"><i class="icon ion-social-snapchat"></i></a><a href="#"><i class="icon ion-social-instagram"></i></a>
-                  <p class="copyright">Company Name © 2018</p>
-              </div>
-          </div>
-      </div>
-  </footer>
-</div>
-
-
+    </script>   
 
 </body>
 </html>

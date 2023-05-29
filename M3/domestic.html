@@ -370,18 +370,28 @@
 
 
   <div class="container">
-    <h2>Transfer Money Internally</h2>
+    <h2>Transfer Money Domestically</h2>
     <form id="transfer-money-form">
    
       <label for="recipient-bank-number">Recipient's Bank Number:</label>
       <input type="text" id="recipient-bank-number" required>
       
+      <label for="recipient-phone">Recipient's Phone Number:</label>
+      <input type="text" id="recipient-phone" required>
+
       <label for="recipient-name">Recipient's Full Name:</label>
       <input type="text" id="recipient-name" required>
       
+      <label for="recipient-bank-name">Recipient's Bank Name:</label>
+      <input type="text" id="recipient-bank-name" required>
+
+      <label for="recipient-bank-city">Recipient's Bank City:</label>
+      <input type="text" id="recipient-bank-city" required>
       
-      <label for="recipient-phone">Recipient's Phone Number:</label>
-      <input type="text" id="recipient-phone" required>
+      <label for="recipient-bank-location">Recipient's Bank Location:</label>
+      <input type="text" id="recipient-bank-location" required>
+
+
       
       <label for="amount">Amount:</label>
       <input type="number" id="amount" min="0" required>

@@ -370,21 +370,201 @@
 
 
   <div class="container">
-    <h2>Transfer Money Internally</h2>
+    <h2>Transfer Money Internationally</h2>
     <form id="transfer-money-form">
    
-      <label for="recipient-bank-number">Recipient's Bank Number:</label>
-      <input type="text" id="recipient-bank-number" required>
-      
-      <label for="recipient-name">Recipient's Full Name:</label>
-      <input type="text" id="recipient-name" required>
-      
-      
-      <label for="recipient-phone">Recipient's Phone Number:</label>
-      <input type="text" id="recipient-phone" required>
-      
-      <label for="amount">Amount:</label>
-      <input type="number" id="amount" min="0" required>
+        <label for="recipient-bank-number">Recipient's Bank Number:</label>
+        <input type="text" id="recipient-bank-number" required>
+        
+        <label for="recipient-phone">Recipient's Phone Number:</label>
+        <input type="text" id="recipient-phone" required>
+  
+        <label for="recipient-name">Recipient's Full Name:</label>
+        <input type="text" id="recipient-name" required>
+        
+        <label for="recipient-bank-name">Recipient's Bank Name:</label>
+        <input type="text" id="recipient-bank-name" required>
+  
+        <!-- <label for="country">Recipient's Bank Country:</label>
+        <input type="text" id="country"  required> -->
+
+        <label for="country">Select a country:</label>
+        <select id="country">
+          <option value="">-- Select a country --</option>
+          <optgroup label="United States Dollar (USD)">
+            <option value="US">United States</option>
+            <option value="EC">Ecuador</option>
+            <option value="SV">El Salvador</option>
+            <option value="FM">Micronesia</option>
+            <option value="PW">Palau</option>
+            <!-- Add more countries -->
+          </optgroup>
+          <optgroup label="Euro (EUR)">
+            <option value="AL">Albania</option>
+            <option value="AD">Andorra</option>
+            <option value="AT">Austria</option>
+            <option value="BY">Belarus</option>
+            <option value="BE">Belgium</option>
+            <!-- Add more countries -->
+          </optgroup>
+          <optgroup label="British Pound (GBP)">
+            <option value="GB">United Kingdom</option>
+            <!-- Add more countries -->
+          </optgroup>
+          <optgroup label="Japanese Yen (JPY)">
+            <option value="JP">Japan</option>
+            <!-- Add more countries -->
+          </optgroup>
+          <optgroup label="Australian Dollar (AUD)">
+            <option value="AU">Australia</option>
+            <!-- Add more countries -->
+          </optgroup>
+          <optgroup label="Canadian Dollar (CAD)">
+            <option value="CA">Canada</option>
+            <!-- Add more countries -->
+          </optgroup>
+          <optgroup label="Swiss Franc (CHF)">
+            <option value="CH">Switzerland</option>
+            <!-- Add more countries -->
+          </optgroup>
+          <optgroup label="Chinese Yuan (CNY)">
+            <option value="CN">China</option>
+            <!-- Add more countries -->
+          </optgroup>
+          <optgroup label="Indian Rupee (INR)">
+            <option value="IN">India</option>
+            <!-- Add more countries -->
+          </optgroup>
+          <optgroup label="New Zealand Dollar (NZD)">
+            <option value="NZ">New Zealand</option>
+            <!-- Add more countries -->
+          </optgroup>
+          <optgroup label="Brazilian Real (BRL)">
+            <option value="BR">Brazil</option>
+            <!-- Add more countries -->
+          </optgroup>
+          <optgroup label="Russian Ruble (RUB)">
+            <option value="RU">Russia</option>
+            <!-- Add more countries -->
+          </optgroup>
+          <optgroup label="Swedish Krona (SEK)">
+            <option value="SE">Sweden</option>
+            <!-- Add more countries -->
+          </optgroup>
+          <optgroup label="South African Rand (ZAR)">
+            <option value="ZA">South Africa</option>
+            <!-- Add more countries -->
+          </optgroup>
+          <optgroup label="Hong Kong Dollar (HKD)">
+            <option value="HK">Hong Kong</option>
+            <!-- Add more countries -->
+          </optgroup>
+          <optgroup label="Mexican Peso (MXN)">
+            <option value="MX">Mexico</option>
+            <!-- Add more countries -->
+          </optgroup>
+          <optgroup label="Singapore Dollar (SGD)">
+            <option value="SG">Singapore</option>
+            <!-- Add more countries -->
+          </optgroup>
+          <optgroup label="Turkish Lira (TRY)">
+            <option value="TR">Turkey</option>
+            <!-- Add more countries -->
+          </optgroup>
+          <optgroup label="United Arab Emirates Dirham (AED)">
+            <option value="AE">United Arab Emirates</option>
+            <!-- Add more countries -->
+          </optgroup>
+          <optgroup label="South Korean Won (KRW)">
+            <option value="KR">South Korea</option>
+            <!-- Add more countries -->
+          </optgroup>
+          <optgroup label="Saudi Riyal (SAR)">
+            <option value="SA">Saudi Arabia</option>
+            <!-- Add more countries -->
+          </optgroup>
+          <optgroup label="Qatari Riyal (QAR)">
+            <option value="QA">Qatar</option>
+            <!-- Add more countries -->
+          </optgroup>
+          <optgroup label="Egyptian Pound (EGP)">
+            <option value="EG">Egypt</option>
+            <!-- Add more countries -->
+          </optgroup>
+          <optgroup label="Kuwaiti Dinar (KWD)">
+            <option value="KW">Kuwait</option>
+            <!-- Add more countries -->
+          </optgroup>
+          <optgroup label="Omani Rial (OMR)">
+            <option value="OM">Oman</option>
+            <!-- Add more countries -->
+          </optgroup>
+          <optgroup label="Bahraini Dinar (BHD)">
+            <option value="BH">Bahrain</option>
+            <!-- Add more countries -->
+          </optgroup>
+          <optgroup label="Jordanian Dinar (JOD)">
+            <option value="JO">Jordan</option>
+            <!-- Add more countries -->
+          </optgroup>
+          <optgroup label="Iraqi Dinar (IQD)">
+            <option value="IQ">Iraq</option>
+            <!-- Add more countries -->
+          </optgroup>
+          <optgroup label="Lebanese Pound (LBP)">
+            <option value="LB">Lebanon</option>
+            <!-- Add more countries -->
+          </optgroup>
+          <optgroup label="Syrian Pound (SYP)">
+            <option value="SY">Syria</option>
+            <!-- Add more countries -->
+          </optgroup>
+        </select>
+        <label for="recipient-bank-city">Recipient's Bank City:</label>
+        <input type="text" id="recipient-bank-city" required>
+  
+        <label for="recipient-bank-location">Recipient's Bank Location:</label>
+        <input type="text" id="recipient-bank-location" required>
+
+        <label for="currency">Select a currency:</label>
+        <select id="currency">
+          <option value="USD">United States Dollar (USD)</option>
+          <option value="EUR">Euro (EUR)</option>
+          <option value="GBP">British Pound (GBP)</option>
+          <option value="JPY">Japanese Yen (JPY)</option>
+          <option value="AUD">Australian Dollar (AUD)</option>
+          <option value="CAD">Canadian Dollar (CAD)</option>
+          <option value="CHF">Swiss Franc (CHF)</option>
+          <option value="CNY">Chinese Yuan (CNY)</option>
+          <option value="INR">Indian Rupee (INR)</option>
+          <option value="NZD">New Zealand Dollar (NZD)</option>
+          <option value="BRL">Brazilian Real (BRL)</option>
+          <option value="RUB">Russian Ruble (RUB)</option>
+          <option value="SEK">Swedish Krona (SEK)</option>
+          <option value="ZAR">South African Rand (ZAR)</option>
+          <option value="HKD">Hong Kong Dollar (HKD)</option>
+          <option value="MXN">Mexican Peso (MXN)</option>
+          <option value="SGD">Singapore Dollar (SGD)</option>
+          <option value="TRY">Turkish Lira (TRY)</option>
+          <option value="AED">United Arab Emirates Dirham (AED)</option>
+          <option value="KRW">South Korean Won (KRW)</option>
+          <option value="SAR">Saudi Riyal (SAR)</option>
+          <option value="QAR">Qatari Riyal (QAR)</option>
+          <option value="EGP">Egyptian Pound (EGP)</option>
+          <option value="KWD">Kuwaiti Dinar (KWD)</option>
+          <option value="OMR">Omani Rial (OMR)</option>
+          <option value="BHD">Bahraini Dinar (BHD)</option>
+          <option value="JOD">Jordanian Dinar (JOD)</option>
+          <option value="IQD">Iraqi Dinar (IQD)</option>
+          <option value="LBP">Lebanese Pound (LBP)</option>
+          <option value="SYP">Syrian Pound (SYP)</option>
+
+        </select>
+  
+        
+        <label for="amount">Amount:</label>
+        <input type="number" id="amount" min="0" required>
+
       
       <button type="submit">Transfer</button>
     </form>
