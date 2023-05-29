@@ -35,10 +35,10 @@ body {
     box-sizing: border-box;
   }
   button {
-    background-color: #4CAF50;
+    background-color: #67a381;
     color: #fff;
     cursor: pointer;
   }
   button:hover {
-    background-color: #45a049;
+    background-color: black;
   }
