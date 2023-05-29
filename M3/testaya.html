@@ -1,175 +1,223 @@
 <!DOCTYPE html>
 <html>
 <head>
-  <title>Client Search - Admin Panel</title>
-  <style>
-    body {
-      font-family: Arial, sans-serif;
-      background:linear-gradient(to left,#e28bb5,#deccfc);
-    }
-
-    .search-container {
-      margin-top: 20px;
-      display: flex;
-      justify-content: center;
-    }
-
-    .search-input {
-      width: 300px;
-      padding: 8px;
-      border: 1px solid #ccc;
-      border-radius: 4px;
-    }
-
-    .search-button {
-      padding: 8px 16px;
-      background-color: #4CAF50;
-      color: white;
-      border: none;
-      border-radius: 4px;
-      cursor: pointer;
-      margin-left: 10px;
-    }
-
-    .details-container {
-      
-      margin-top: 20px;
-    margin-left: 600px;
-    }
-
-    .details {
-      padding: 16px;
-      border-radius: 4px;
-      justify-content: center;
-    }
-
-    .details h3 {
-      margin-top: 0;
-    }
-
-    .status {
-      margin-top: 10px;
-    }
-
-    .block-button{
-      padding: 8px 16px;
-      background-color: #f44336;
-      color: white;
-      border: none;
-      border-radius: 4px;
-      cursor: pointer;
-      margin-top: 10px;
-    }
-    .unblock-button {
-      padding: 8px 16px;
-      background-color: green;
-      color: white;
-      border: none;
-      border-radius: 4px;
-      cursor: pointer;
-      margin-top: 10px;
-    }
-    .header{
-      margin-top: 50px;
-      margin-left: 600px;
-      margin-bottom: 100px;
-    }
+  <title>Client Search</title>
+  <style>.container {
+    text-align: center;
+    margin-top: 50px;
+  }
+  
+  input[type="text"] {
+    padding: 10px;
+    font-size: 16px;
+    border: 1px solid #ccc;
+  }
+  
+  button {
+    padding: 10px 20px;
+    font-size: 16px;
+  }
+  
+  .carousel-container {
+    position: relative;
+    margin-top: 30px;
+  }
+  
+  .carousel {
+    display: flex;
+    overflow-x: auto;
+    scroll-snap-type: x mandatory;
+    scroll-behavior: smooth;
+  }
+  
+  .carousel-prev,
+  .carousel-next {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    width: 30px;
+    height: 30px;
+    background-color: #ccc;
+    color: #fff;
+    text-align: center;
+    text-decoration: none;
+    line-height: 30px;
+    font-size: 24px;
+  }
+  
+  .carousel-prev {
+    left: 10px;
+  }
+  
+  .carousel-next {
+    right: 10px;
+  }
   </style>
 </head>
 <body>
-  <h2 class="header">Client Search - Admin Panel</h2>
-  <div class="search-container">
-    <input type="text" id="searchInput" class="search-input" placeholder="Enter bank account number">
-    <button type="button" class="search-button" onclick="searchClient()">Search</button>
-  </div>
-
-  <div class="details-container" id="detailsContainer" style="display: none;">
-    <div class="details">
-      <h3>Client Details</h3>
-      <p id="clientName"></p>
-      <p id="clientAccount"></p>
-      <div class="status">
-        <strong>Status:</strong> <span id="clientStatus"></span>
-      </div>
-      <button type="button" class="block-button" onclick="blockClient()">Block</button>
-      <button type="button" class="unblock-button" onclick="unblockClient()">Unblock</button>
+  <div class="container">
+    <h1>Client Search</h1>
+    <input type="text" id="searchInput" placeholder="Enter account number">
+    <button onclick="searchClient()">Search</button>
+    
+    <div id="carouselContainer" class="carousel-container">
+      <div id="carousel" class="carousel"></div>
+      <a class="carousel-prev" href="#" onclick="prevSlide()">&#10094;</a>
+      <a class="carousel-next" href="#" onclick="nextSlide()">&#10095;</a>
     </div>
+    
   </div>
 
-  <script>
+  <script >// Sample data
+    const clients = [
+      {
+        accountNumber: '1234567890',
+        name: 'John Doe',
+        address: '123 Main St',
+        balance: 5000,
+        creditCard: {
+          number: '**** **** **** 1234',
+          expDate: '09/25',
+          cvv: '123',
+          limit: 10000,
+          bill: 2500
+        },
+        transactions: [
+          { date: '2023-05-01', amount: -100, description: 'Purchase' },
+          { date: '2023-05-02', amount: 2000, description: 'Deposit' },
+          { date: '2023-05-05', amount: -500, description: 'Withdrawal' }
+        ],
+        loans: [
+          { type: 'Mortgage', amount: 200000, monthlyPayment: 1500 },
+          { type: 'Auto Loan', amount: 30000, monthlyPayment: 500 }
+        ]
+      },
+      // Add more client data here...
+    ];
+    
+    // Function to search for a client
     function searchClient() {
-      var searchInput = document.getElementById("searchInput").value;
-      // Perform client search based on the bank account number
-      // You can replace the below dummy data with your logic to fetch client details from a database or API
-      var clientData = {
-        name: "John Doe",
-        account: "1234 5678 9011 4445",
-        status: "Unblocked"
-      };
-     
-      <div class="notifications" id="notifications" >
-        <span class="badge">4</span>
-        <img src="img/bell.png" alt="Notification Bell" style="width: 35px; height: 30px" >
-        <div class="dropdown" id="dropdown">
-          <a href="#">A debit transaction of $100.00 has been made from your account on May 15, 2023. Please review the transaction details and contact us if you notice any unauthorized activity.</a>
-          <a href="#">  This is a reminder that your bill payment of $75.00 for your electricity bill is due on May 30, 2023. Please ensure that you have sufficient funds in your account to cover the payment by the due date.</a>
-          <a href="#"> We are pleased to inform you that the issue you reported regarding your credit card loss has been resolved and we accepted your request of issuing a new card. check your credit card section to view.</a>
-          <a href="#">We would like to inform you that our online banking system will be undergoing scheduled maintenance on June 15, 2023, from 10:00 PM to 2:00 AM (UTC). During this time, you may experience temporary unavailability of our online banking services. We apologize for any inconvenience caused and appreciate your understanding.</a>
-        </div>
-      </div>
-      <div id="navbar" class="navbar">
-      <ul>       
-        <li><a href="apply_credit.html">Apply For Credit Card</a></li>
-      <li><a href="credit_card.html">My Credit Card</a></li>
-  
-      <li><a href="apply_loan.html"> Apply For Loan</a></li>
-      <li><a href="myLoan.html"> View Loan</a></li>
-  
-      <li><a href="bank_acc.html">Bank Account</a></li>
-     
-      <li><a href="services.html">Services</a></li>
-      <li><a href="send_money.html">Transfer </a></li>
-      <li><a href="report.html">Report Issue</a></li>
-      <li><a href="client_card_replacement.html">Request Credit Card Replacement</a></li>
-      <li><a href="transactions.html">View Transactions</a></li>
-  
-      <li><a href="reminders.html">Set Reminders</a></li>
-  
-      </ul>
-    </div>
-
-      if (searchInput === clientData.account) {
-        // Display client details and status
-        document.getElementById("clientName").textContent = "Name: " + clientData.name;
-        document.getElementById("clientAccount").textContent = "Account: " + clientData.account;
-        document.getElementById("clientStatus").textContent = clientData.status;
-        document.getElementById("detailsContainer").style.display = "block";
+      const searchInput = document.getElementById('searchInput');
+      const accountNumber = searchInput.value;
+    
+      const client = clients.find(c => c.accountNumber === accountNumber);
+    
+      if (client) {
+        displayClientDetails(client);
       } else {
-        // Clear client details and hide the details container
-        document.getElementById("clientName").textContent = "";
-        document.getElementById("clientAccount").textContent = "";
-        document.getElementById("clientStatus").textContent = "";
-        document.getElementById("detailsContainer").style.display = "none";
-        alert("Client not found!");
+        clearCarousel();
       }
     }
+    
+    // Function to display client details in the carousel
+    // Function to display client details in the carousel
+function displayClientDetails(client) {
+  const carousel = document.getElementById('carousel');
+  carousel.innerHTML = '';
 
-    function blockClient() {
-      
-if(document.getElementById("clientStatus").innerHTML==="Blocked"){
-  alert("Client is already blocked!");
-}else{
-      alert("Client blocked!");
-      document.getElementById("clientStatus").innerHTML="Blocked";}
-    }
+  // Client Details
+  const detailsContainer = document.createElement('div');
+  detailsContainer.classList.add('carousel-item');
 
-    function unblockClient() {
-      if(document.getElementById("clientStatus").innerHTML==="Unblocked"){
-  alert("Client is already unblocked!");
-}else{
-      alert("Client is  unblocked!");
-      document.getElementById("clientStatus").innerHTML="unBlocked";}
+  const accountNumber = document.createElement('p');
+  accountNumber.textContent = 'Account Number: ' + client.accountNumber;
+  detailsContainer.appendChild(accountNumber);
+
+  const name = document.createElement('p');
+  name.textContent = 'Name: ' + client.name;
+  detailsContainer.appendChild(name);
+
+  const address = document.createElement('p');
+  address.textContent = 'Address: ' + client.address;
+  detailsContainer.appendChild(address);
+
+  const balance = document.createElement('p');
+  balance.textContent = 'Balance: $' + client.balance;
+  detailsContainer.appendChild(balance);
+
+  carousel.appendChild(detailsContainer);
+
+  // Credit Card Details
+  const creditCardContainer = document.createElement('div');
+  creditCardContainer.classList.add('carousel-item');
+
+  const creditCard = document.createElement('p');
+  creditCard.textContent = 'Credit Card: ' + client.creditCard.number;
+  creditCardContainer.appendChild(creditCard);
+
+  const expDate = document.createElement('p');
+  expDate.textContent = 'Expiration Date: ' + client.creditCard.expDate;
+  creditCardContainer.appendChild(expDate);
+
+  const cvv = document.createElement('p');
+  cvv.textContent = 'CVV: ' + client.creditCard.cvv;
+  creditCardContainer.appendChild(cvv);
+
+  const limit = document.createElement('p');
+  limit.textContent = 'Limit: $' + client.creditCard.limit;
+  creditCardContainer.appendChild(limit);
+
+  const bill = document.createElement('p');
+  bill.textContent = 'Bill: $' + client.creditCard.bill;
+  creditCardContainer.appendChild(bill);
+
+  carousel.appendChild(creditCardContainer);
+
+  // Transactions
+  const transactionsContainer = document.createElement('div');
+  transactionsContainer.classList.add('carousel-item');
+
+  const transactionsTitle = document.createElement('p');
+  transactionsTitle.textContent = 'Transactions:';
+  transactionsContainer.appendChild(transactionsTitle);
+
+  const transactionsList = document.createElement('ul');
+  client.transactions.forEach(transaction => {
+    const item = document.createElement('li');
+    item.textContent = `${transaction.date}: ${transaction.description}, Amount: ${transaction.amount}`;
+    transactionsList.appendChild(item);
+  });
+  transactionsContainer.appendChild(transactionsList);
+
+  carousel.appendChild(transactionsContainer);
+
+  // Loans
+  const loansContainer = document.createElement('div');
+  loansContainer.classList.add('carousel-item');
+
+  const loansTitle = document.createElement('p');
+  loansTitle.textContent = 'Loans:';
+  loansContainer.appendChild(loansTitle);
+
+  const loansList = document.createElement('ul');
+  client.loans.forEach(loan => {
+    const item = document.createElement('li');
+    item.textContent = `${loan.type}: Amount: $${loan.amount}, Monthly Payment: $${loan.monthlyPayment}`;
+    loansList.appendChild(item);
+  });
+  loansContainer.appendChild(loansList);
+
+  carousel.appendChild(loansContainer);
+}
+
+    
+    // Function to clear the carousel
+    function clearCarousel() {
+      const carousel = document.getElementById('carousel');
+      carousel.innerHTML = '';
     }
-  </script>
+    
+    // Function to navigate to the previous slide
+    function prevSlide() {
+      const carousel = document.getElementById('carousel');
+      carousel.scrollBy(-200, 0);
+    }
+    
+    // Function to navigate to the next slide
+    function nextSlide() {
+      const carousel = document.getElementById('carousel');
+      carousel.scrollBy(200, 0);
+    }
+    </script>
 </body>
 </html>

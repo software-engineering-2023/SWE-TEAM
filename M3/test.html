@@ -1,881 +1,156 @@
 <!DOCTYPE html>
 <html>
 <head>
-  <title>Problem Solver</title>
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.1.3/css/bootstrap.min.css">
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/ionicons/2.0.1/css/ionicons.min.css">
-  <link rel="stylesheet" href="assets/css/style.css">
+  <title>Client Details</title>
+  
   <style>
-    body {
-      font-family: Arial, sans-serif;
-      background:linear-gradient(to left,#e28bb5,#deccfc);
-    }
-    .footer {
-      background-color: #333;
-      color: white;
-      text-align: center;
-      
-      padding-top: 100px;
-      margin-top: 100px;
-    }
-    
-    .footer a {
-      color: white;
-      text-decoration: none;
-      margin: 0 10px;
-    }
-    .footer-clean {
-  padding:50px 0;
-  background-color: #67a381;
-  color:white;
-  
-  bottom: 0;
-  width: 100%;
+    .container {
+  max-width: 800px;
+  margin: 0 auto;
+  padding: 20px;
 }
 
-.footer-clean h3 {
-  margin-top:0;
-  margin-bottom:12px;
-  font-weight:bold;
-  font-size:16px;
+h1, h2 {
+  text-align: center;
 }
 
-.footer-clean ul {
-  padding:0;
-  list-style:none;
-  line-height:1.6;
-  font-size:14px;
-  margin-bottom:0;
-}
-
-.footer-clean ul a {
-  color:inherit;
-  text-decoration:none;
-  opacity:0.8;
-}
-
-.footer-clean ul a:hover {
-  opacity:1;
-}
-
-.footer-clean .item.social {
-  text-align:right;
-}
-
-@media (max-width:767px) {
-  .footer-clean .item {
-    text-align:center;
-    padding-bottom:20px;
-  }
-}
-
-@media (max-width: 768px) {
-  .footer-clean .item.social {
-    text-align:center;
-  }
-}.footer-clean .item.social > a {
-  font-size:24px;
-  width:40px;
-  height:40px;
-  line-height:40px;
-  display:inline-block;
-  text-align:center;
-  border-radius:50%;
-  border:1px solid #ccc;
-  margin-left:10px;
-  margin-top:22px;
-  color:inherit;
-  opacity:0.75;
-}
-
-.footer-clean .item.social > a:hover {
-  opacity:0.9;
-}
-
-@media (max-width:991px) {
-  .footer-clean .item.social > a {
-    margin-top:40px;
-  }
-}
-
-@media (max-width:767px) {
-  .footer-clean .item.social > a {
-    margin-top:10px;
-  }
-}
-
-.footer-clean .copyright {
-  margin-top:14px;
-  margin-bottom:0;
-  font-size:13px;
-  opacity:0.6;
-}
-
-    .search-container {
-        margin-bottom: 400px;
-  margin-top: 20px;
+.search-container {
   display: flex;
   justify-content: center;
-}
-
-.search-input {
-  width: 300px;
-  padding: 10px;
-  border: none;
-  border-radius: 25px;
-  font-size: 16px;
-  background-color: #f2f2f2;
-  outline: none;
-}
-
-.search-button {
-  padding: 10px 20px;
-  background-color: #67a381;
-  color: white;
-  border: none;
-  border-radius: 25px;
-  cursor: pointer;
-  margin-left: 10px;
-  font-size: 16px;
-  transition: background-color 0.3s ease;
-  outline: none;
-}
-
-.search-button:hover {
-  background-color: black;
-}
-
-.search-button:focus {
-  outline: none;
-}
-
-
-    .details-container {
-      
-      margin-top: -300px;
-    margin-left: 600px;
-    margin-bottom: 200px;
-    }
-
-    .details {
-      padding: 16px;
-      border-radius: 4px;
-      justify-content: center;
-    }
-
-    .details h3 {
-      margin-top: 0;
-    }
-
-    .status {
-      margin-top: 10px;
-    }
-
-    .block-button{
-      padding: 8px 16px;
-      background-color: #f44336;
-      color: white;
-      border: none;
-      border-radius: 4px;
-      cursor: pointer;
-      margin-top: 10px;
-    }
-    .unblock-button {
-      padding: 8px 16px;
-      background-color: green;
-      color: white;
-      border: none;
-      border-radius: 4px;
-      cursor: pointer;
-      margin-top: 10px;
-    }
-    .header{
-      margin-top: 50px;
-      margin-left: 530px;
-      margin-bottom: 100px;
-    } .notifications {
-        position: fixed;
-      top: 5px;
-      right: 20px;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      width: 30px;
-      height: 30px;
-      background-color : transparent;
-      color: #fff;
-      border-radius: 50%;
-      cursor: pointer;
-    }
-    
-    .badge {
-      position: absolute;
-      top: -5px;
-      right: -3px;
-      background-color: red;
-      color: #fff;
-      width: 15px;
-      height: 15px;
-      border-radius: 50%;
-      text-align: center;
-      line-height: 10px;
-      font-size: 10px;
-    }
-    
-    .dropdown {
-      position: absolute;
-      top: 45px;
-      right: 0;
-      width: 600px;
-      background-color: #67a381;
-      border: 1px solid #ddd;
-      border-radius: 4px;
-      display: none;
-      z-index: 1;
-    }
-    
-    .dropdown a {
-      color: white;
-      padding: 12px 16px;
-      text-decoration: none;
-      display: block;
-    }
-    
-     .dropdown a:hover {
-      background-color: black;
-      box-shadow: 0px 3px 20px 0px black;
-  transform: scale(1.0);
-    }
-    
-    .notifications:hover .dropdown {
-      display: block;
-    } 
-    .navbar {
-      position: fixed;
-      top: 0;
-      left: -250px; /* Initially hidden off the screen */
-      width: 250px;
-      height: 100vh;
-      background-color:#67a381;
-      color: #fff;
-      transition: left 0.3s ease;
-    }
-    
-    .navbar.open {
-      left: 0; /* Slides in from the left when open class is applied */
-    }
-    
-    .navbar ul {
-      list-style-type: none;
-      margin: 0;
-      padding: 0;
-      overflow: hidden;
-    }
-    
-    .navbar li {
-      text-align: left;
-    }
-    
-    .navbar li a {
-      display: block;
-      color: white;
-      padding: 14px 16px;
-      text-decoration: none;
-    }
-    
-    .navbar li a:hover {
-      background-color: #111;
-      box-shadow: 0px 3px 20px 0px black;
-  transform: scale(1.0);
-
-    }
-    .openbtn {
-    position: fixed;
-      top: 3px;
-      left: 10px;
-      background-color: transparent;
-      color: #111;
-      padding: 10px 15px;
-      font-size: 20px;
-      border: none;
-      cursor: pointer;
-    }
-    .menu-bar {
-    height: 50px;
-
-  
-  width: 100%;
-  display: flex;
-  /* position: fixed; */
-  background-color: #67a381;
-  -webkit-backdrop-filter: blur(10px);
-  backdrop-filter: blur(10px);
   align-items: center;
- 
-  margin: 0;
-  justify-content: center;
-  left: 50%;
-  top: -100px;
+  margin-bottom: 20px;
 }
-.menu-bar li {
-  list-style: none;
-  color: white;
-  font-family: sans-serif;
-  font-weight: bold;
-  padding: 12px 16px;
-  margin: 0 8px;
-  position: relative;
+
+.search-container input[type="text"] {
+  padding: 10px;
+  font-size: 16px;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  margin-right: 10px;
+  width: 300px;
+}
+
+.search-container button {
+  padding: 10px 20px;
+  font-size: 16px;
+  background-color: #4CAF50;
+  color: #fff;
+  border: none;
+  border-radius: 4px;
   cursor: pointer;
-  white-space: nowrap;
-}
-.menu-bar li::before {
-  content: " ";
-  position: absolute;
-  top: 0;
-  left: 0;
-  height: 100%;
-  width: 100%;
-  z-index: -1;
-  transition: 0.2s;
-  border-radius: 25px;
-}
-.menu-bar li:hover {
-  color: white;
-}
-.menu-bar li:hover::before {
-  background:black;
-  box-shadow: 0px 3px 20px 0px black;
-  transform: scale(1.2);
-} a{
-      color: white;
-      text-decoration: none;
-    }
-    a:hover{
-      text-decoration: none;
-      color: inherit;
-    }
-    .logo{
-        left: 630px;
-        top: -25px;
-        position: fixed;
-    }h1 {
-      text-align: center;
-      font-size: 36px;
-      margin-bottom: 40px;
-      text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
-    }
-
-    .problem-card {
-      background-color: #fff;
-      box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3);
-      padding: 20px;
-      margin-bottom: 40px;
-      border-radius: 10px;
-    }
-
-    .problem-title {
-        color: #333;
-      font-size: 24px;
-      margin-bottom: 10px;
-      text-align: center;
-    }
-
-    .client-info{
-        color: #333;
-      font-size: 18px;
-      margin-bottom: 10px;
-    }
-
-    .issue-description{
-        color: #333;
-      font-size: 18px;
-      margin-bottom: 10px;
-    }
-
-    .client-info-container,
-.issue-description-container {
-  border: 1px solid #ddd;
-  padding: 10px;
-  margin-bottom: 10px;
 }
 
-    .solve-button {
-      display: block;
-      margin: 0 auto;
-      padding: 10px 40px;
-      background-color: #67a381;
-      color: #fff;
-      text-decoration: none;
-      border-radius: 25px;
-      transition: background-color 0.3s ease , transform 0.3s ease;
-      text-align: center;
-      font-size: 18px;
-      text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.5);
-    }
-
-    .solve-button:hover {
-      background-color: black;
-      transform: translateY(-2px);
-    }table {
-      width: 100%;
-      border-collapse: collapse;
-      background-color: #f2f2f2;
-      margin-bottom: 300px;
-      
-    }
-
-    table, th, td {
-      border: 1px solid #ccc;
-      padding: 8px;
-    }
-
-    th {
-      background-color: #f2f2f2;
-    }
-    .containers {
-      max-width: 600px;
-      margin: 0 auto;
-      padding: 20px;
-      background-color: #fff;
-      box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3);
-      border-radius: 10px;
-      margin-bottom: 200px;
-      margin-top: 50px;
-    }
-
-    h1 {
-      text-align: center;
-      font-size: 36px;
-      margin-bottom: 30px;
-      /* text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5); */
-    }
-
-    textarea {
-      font-family: 'Arial', sans-serif;
-      width: 100%;
-      height: 200px;
-      padding: 10px;
-      font-size: 18px;
-      border-radius: 5px;
-      border: none;
-      margin-bottom: 20px;
-    }
-
-   
-    .send-button {
-        
-      display: block;
-      width: 95%;
-      padding: 10px 20px;
-      background-color: #67a381;
-      color: #fff;
-      text-decoration: none;
-      text-align: center;
-      font-size: 18px;
-      border-radius: 10px;
-      transition: background-color 0.3s ease;
-    }
-
-    .send-button:hover {
-      background-color:black;
-    }
-     /* Custom alert styles */
-     .custom-alert {
-      display: none;
-      position: fixed;
-      top: 50%;
-      left: 50%;
-      transform: translate(-50%, -50%);
-      background-color: #fff;
-      padding: 20px;
-      border-radius: 5px;
-      box-shadow: 0 2px 10px rgba(0, 0, 0, 0.3);
-      z-index: 9999;
-    }
-
-    .custom-alert-message {
-      font-size: 18px;
-      margin-bottom: 10px;
-    }
-
-    .custom-alert-button {
-        
-      background-color: #67a381;
-      color: #fff;
-      border: none;
-      padding: 10px 20px;
-      font-size: 16px;
-      border-radius: 5px;
-      cursor: pointer;
-    }
-    .problem-card {
-      background-color: #fff;
-      box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3);
-      padding: 20px;
-      margin-bottom: 40px;
-      border-radius: 10px;
-    }
-
-    .problem-title {
-        color: #333;
-      font-size: 24px;
-      margin-bottom: 10px;
-      text-align: center;
-    }
-
-    .client-info{
-        color: #333;
-      font-size: 18px;
-      margin-bottom: 10px;
-    }
-
-    .issue-description{
-        color: #333;
-      font-size: 18px;
-      margin-bottom: 10px;
-    }
-
-    .client-info-container,
-.issue-description-container {
-  border: 1px solid #ddd;
-  padding: 10px;
-  margin-bottom: 10px;
+#client-details, #credit-card-details, #transactions, #loans {
+  margin-bottom: 20px;
 }
 
-    .solve-button {
-      display: block;
-      margin: 0 auto;
-      padding: 10px 40px;
-      background-color: #2ecc71;
-      color: #fff;
-      text-decoration: none;
-      border-radius: 25px;
-      transition: background-color 0.3s ease , transform 0.3s ease;
-      text-align: center;
-      font-size: 18px;
-      text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.5);
-    }
+.hidden {
+  display: none;
+}
 
-    .solve-button:hover {
-      background-color: #27ae60;
-      transform: translateY(-2px);
-    } table {
-      width: 100%;
-      border-collapse: collapse;
-      margin-top: 20px;
-      margin-bottom: 300px;
-    }
-    
-    th, td {
-      padding: 10px;
-      text-align: center;
-      border: 1px solid #ccc;
-    }
-    
-    th {
-      background-color: #f2f2f2;
-      font-weight: bold;
-    }
-    
-    tr:nth-child(even) {
-      background-color: #f9f9f9;
-    }
-    
-    tr:nth-child(odd) {
-      background-color: #f5f5f5;
-    }
-    
-    .buttons {
-      display: flex;
-      justify-content: center;
-      gap: 10px;
-    }
-    
-    .accept-btn {
-      padding: 8px 16px;
-      background-color: #67a381;
-      border: none;
-      color: white;
-      cursor: pointer;
-      font-weight: bold;
-      transition: background-color 0.3s ease, transform 0.3s ease;
-      border-radius: 10px;
-    }
-    .deny-btn{
-        padding: 8px 16px;
-      background-color: red;
-      border: none;
-      color: white;
-      cursor: pointer;
-      font-weight: bold;
-      transition: background-color 0.3s ease, transform 0.3s ease;
-      border-radius: 10px; padding: 8px 16px;
-
-      border: none;
-      color: white;
-      cursor: pointer;
-      font-weight: bold;
-      transition: background-color 0.3s ease, transform 0.3s ease;
-      border-radius: 10px;
-    }
-    
-    .accept-btn:hover, .deny-btn:hover {
-      background-color: black;
-      transform: translateY(-5px);
-    }
-    
-    .accept-btn:active, .deny-btn:active {
-      background-color: black;
-    }
-    tbody td {
-      padding-bottom: 10px;
-    }
-    .back-arrow {
-      display: flex;
-      width: 50px;
-      height: 50px;
-      position:fixed;
-      border-radius: 50%;
-      text-align: center;
-      cursor: pointer;
-      margin-top: -55px;
-      margin-left: -1400px;
-      color: black;
-    }
-
-    .back-arrow:before {
-      content: '\2190'; /* Unicode character for left arrow */
-      font-size: 40px;
-      line-height: 100px;
-      color: black;
-    }
   </style>
 </head>
 <body>
-
-    <ul class="menu-bar">
-      <div class="back-arrow" onclick="goBack()"></div>
-        <div class="logo">
-            <a href="Banker_home.html">
-            <img src="img/logo.png" style="width: 150px; height:100px; margin-left: 40px;">
-        </a>
-        </div>
-        <div class="notifications" id="notifications" >
-            <span class="badge">3</span>
-            <img src="img/bell.png" alt="Notification Bell" style="width: 35px; height: 30px" >
-            <div class="dropdown" id="dropdown">
-              <a href="#">  <strong> account balance alerts </strong> :  The account balance of John Doe has fallen below the specified threshold. Please review the client's account activity and take appropriate actions if necessary.</a>
-              <a href="#">you have received new loan requests, please review your loan requests.</a>
-              <a href="#">you have received 50 credit card requests.</a>
-            </div>
-          </div>
-        <li></li>
-        
-       
-       
-        <button id="openbtn" class="openbtn" onclick="toggleNavbar()">&#9776; </button>
-        <div id="navbar" class="navbar">
-          <ul>
-            <li><a href="approve_creditcard.html">Credit Card <br>Confirmation</a></li>
-              <li><a href="cardReplacement_request.html">Credit Card <br>Replacement</a></li>
-        
-              <li><a href="approve_loan.html">Loan Confirmation</a></li>
-              <li><a href="Transaction_confirmation.html">Transactions <br>Confirmation</a></li>
-              <li><a href="announcement.html">Make Announcement</a></li>
-              
-             
-              <li><a href="resolve_issue.html"> Complaints</a></li>
-        
-          </ul>
-        </div>
-      </ul>
-      <h1>Transaction Details</h1>
-  
-  <table>
-    <tr>
-      <th>Sender</th>
-      <th>Receiver</th>
-      <th>Date</th>
-      <th>Type</th>
-      <th>Amount</th>
-      <th>Action</th>
-    </tr>
-    <tr id="first">
-      <td>John Doe</td>
-      <td>Jane Smith</td>
-      <td>May 23, 2023</td>
-      <td>Bank Account</td>
-      <td>4000</td>
-      <td class="buttons">
-        <button class="accept-btn" onclick="accept('first')">Accept</button>
-        <button class="deny-btn" onclick="deny('first')">Deny</button>
-      </td>
-    </tr>
-    
-    <tr id="second">
-      <td>David Johnson</td>
-      <td>Emily Davis</td>
-      <td>May 24, 2023</td>
-      <td>Credit</td>
-      <td>5000</td>
-      <td class="buttons">
-        <button class="accept-btn" onclick="accept('second')">Accept</button>
-        <button class="deny-btn" onclick="deny('second')">Deny</button>
-      </td>
-    </tr>
-    <!-- Add more rows for additional transactions -->
-  </table>
-  <script>
-    function accept(id){
-        alert('Transaction is accepted');
-        document.getElementById(id).remove();
-    }
-    function deny(id){
-        alert('Transaction is denied');
-        document.getElementById(id).remove();
-    }
-  </script>
-  <script>
-    function goBack() {
-      window.history.back();
-    }
-  </script>
-
-
-  <div class="footer-clean">
-    <footer>
-        <div class="container">
-            <div class="row justify-content-center">
-                <div class="col-sm-4 col-md-3 item">
-                    <h3>Services</h3>
-                    <ul>
-                        <li><a href="#">Web design</a></li>
-                        <li><a href="#">Development</a></li>
-                        <li><a href="#">Hosting</a></li>
-                    </ul>
-                </div>
-                <div class="col-sm-4 col-md-3 item">
-                    <h3>About</h3>
-                    <ul>
-                        <li><a href="#">Company</a></li>
-                        <li><a href="#">Team</a></li>
-                        <li><a href="#">Legacy</a></li>
-                    </ul>
-                </div>
-                <div class="col-sm-4 col-md-3 item">
-                    <h3>Careers</h3>
-                    <ul>
-                        <li><a href="#">Job openings</a></li>
-                        <li><a href="#">Employee success</a></li>
-                        <li><a href="#">Benefits</a></li>
-                    </ul>
-                </div>
-                <div class="col-lg-3 item social"><a href="#"><i class="icon ion-social-facebook"></i></a><a href="#"><i class="icon ion-social-twitter"></i></a><a href="#"><i class="icon ion-social-snapchat"></i></a><a href="#"><i class="icon ion-social-instagram"></i></a>
-                    <p class="copyright">Company Name © 2018</p>
-                </div>
-            </div>
-        </div>
-    </footer>
-</div>
+  <div class="container">
+    <h1>Client Search</h1>
+    <div class="search-container">
+      <input type="text" id="search-input" placeholder="Enter bank account number">
+      <button onclick="searchClient()">Search</button>
+    </div>
+    <div id="client-details" class="hidden">
+      <h2>Client Details</h2>
+      <p><strong>Account Number:</strong> <span id="account-number"></span></p>
+      <p><strong>Name:</strong> <span id="client-name"></span></p>
+      <p><strong>Address:</strong> <span id="client-address"></span></p>
+      <p><strong>Current Balance:</strong> <span id="current-balance"></span></p>
+    </div>
+    <div id="credit-card-details" class="hidden">
+      <h2>Credit Card Details</h2>
+      <p><strong>Card Number:</strong> <span id="card-number"></span></p>
+      <p><strong>Expiration Date:</strong> <span id="expiration-date"></span></p>
+      <p><strong>CVV:</strong> <span id="cvv"></span></p>
+      <p><strong>Credit Limit:</strong> <span id="credit-limit"></span></p>
+      <p><strong>Bill Amount:</strong> <span id="bill-amount"></span></p>
+    </div>
+    <div id="transactions" class="hidden">
+      <h2>Transactions</h2>
+      <ul id="transaction-list"></ul>
+    </div>
+    <div id="loans" class="hidden">
+      <h2>Loans</h2>
+      <ul id="loan-list"></ul>
+    </div>
+  </div>
 <script>
-  function solve(requestId){
+  function searchClient() {
+  // Simulated client data
+  const clients = [
+    {
+      accountNumber: '1234567890',
+      name: 'John Doe',
+      address: '123 Main St, Anytown, USA',
+      balance: 5000,
+      cardNumber: '**** **** **** 1234',
+      expirationDate: '12/25',
+      cvv: '123',
+      creditLimit: 10000,
+      billAmount: 250,
+      transactions: [
+        { date: '2023-05-01', amount: 100, receiver: 'Jane Smith', type: 'Bank Account' },
+        { date: '2023-05-05', amount: 50, receiver: 'Alex Johnson', type: 'Credit Card' },
+        { date: '2023-05-10', amount: 200, receiver: 'Sam Wilson', type: 'Bank Account' }
+      ],
+      loans: [
+        { amount: 1000, purpose: 'Home Renovation', dueDate: '2023-12-31', installmentsLeft: 6 },
+        { amount: 500, purpose: 'Car Loan', dueDate: '2023-10-15', installmentsLeft: 3 }
+      ]
+    },
+    // Add more client data here
+  ];
 
-    // Display the success message or perform any necessary actions
-    
-    displaySuccessMessage("Issue with ID: " + requestId + " has been solved.");
-      document.getElementById("row-"+requestId).remove();
-    }
-    function displaySuccessMessage(message) {
-      alert(message);
-    }
-</script>
-<script>
-  
-  function showAnnouncementSentAlert() {
-    var customAlert = document.getElementById("custom-alert");
-    customAlert.style.display = "block";
+  const searchInput = document.getElementById('search-input');
+  const accountNumber = searchInput.value.trim();
+  const client = clients.find(c => c.accountNumber === accountNumber);
+
+  if (client) {
+    document.getElementById('account-number').textContent = client.accountNumber;
+    document.getElementById('client-name').textContent = client.name;
+    document.getElementById('client-address').textContent = client.address;
+    document.getElementById('current-balance').textContent = client.balance;
+    document.getElementById('card-number').textContent = client.cardNumber;
+    document.getElementById('expiration-date').textContent = client.expirationDate;
+    document.getElementById('cvv').textContent = client.cvv;
+    document.getElementById('credit-limit').textContent = client.creditLimit;
+    document.getElementById('bill-amount').textContent = client.billAmount;
+    document.getElementById('transaction-list').innerHTML = client.transactions
+      .map(t => `<li>Date: ${t.date}, Amount: ${t.amount}, Receiver: ${t.receiver}, Type: ${t.type}</li>`)
+      .join('');
+    document.getElementById('loan-list').innerHTML = client.loans
+      .map(l => `<li>Amount: ${l.amount}, Purpose: ${l.purpose}, Due Date: ${l.dueDate}, Installments Left: ${l.installmentsLeft}</li>`)
+      .join('');
+
+    showElement('client-details');
+    showElement('credit-card-details');
+    showElement('transactions');
+    showElement('loans');
+  } else {
+    hideElement('client-details');
+    hideElement('credit-card-details');
+    hideElement('transactions');
+    hideElement('loans');
   }
 
-  function closeCustomAlert() {
-    var customAlert = document.getElementById("custom-alert");
-    customAlert.style.display = "none";
-    document.getElementById("announcement").value="";
-  }
-</script>
-<!-- <script>
-  function solve(requestId){
+  searchInput.value = '';
+}
 
-    // Display the success message or perform any necessary actions
-    
-    displaySuccessMessage("Issue with ID: " + requestId + " has been solved.");
-      document.getElementById("row-"+requestId).remove();
-    }
-    function displaySuccessMessage(message) {
-      alert(message);
-    }
-</script> -->
-  <script>
-    function searchClient() {
-      var searchInput = document.getElementById("searchInput").value;
-      // Perform client search based on the bank account number
-      // You can replace the below dummy data with your logic to fetch client details from a database or API
-      var clientData = {
-        name: "John Doe",
-        account: "1234 5678 9011 4445",
-        status: "Unblocked"
-      };
-     
-      
-
-      if (searchInput === clientData.account) {
-        // Display client details and status
-        document.getElementById("clientName").textContent = "Name: " + clientData.name;
-        document.getElementById("clientAccount").textContent = "Account: " + clientData.account;
-        document.getElementById("clientStatus").textContent = clientData.status;
-        document.getElementById("detailsContainer").style.display = "block";
-      } else {
-        // Clear client details and hide the details container
-        document.getElementById("clientName").textContent = "";
-        document.getElementById("clientAccount").textContent = "";
-        document.getElementById("clientStatus").textContent = "";
-        document.getElementById("detailsContainer").style.display = "none";
-        alert("Client not found!");
-      }
-    }
-
-    function blockClient() {
-      
-if(document.getElementById("clientStatus").innerHTML==="Blocked"){
-  alert("Client is already blocked!");
-}else{
-      alert("Client blocked!");
-      document.getElementById("clientStatus").innerHTML="Blocked";}
-    }
-
-    function unblockClient() {
-      if(document.getElementById("clientStatus").innerHTML==="Unblocked"){
-  alert("Client is already unblocked!");
-}else{
-      alert("Client is  unblocked!");
-      document.getElementById("clientStatus").innerHTML="unBlocked";}
-    }
-  </script>
-   <script>
-    document.addEventListener('click', function(event) {
-      var navbar = document.getElementById('navbar');
-      var openbtn = document.getElementById('openbtn');
-      
-      if (!navbar.contains(event.target) && event.target !== openbtn) {
-        navbar.classList.remove('open');
-      }
-    });
-    function toggleNavbar() {
-      var navbar = document.getElementById('navbar');
-      navbar.classList.toggle('open');
-    }
-    </script>
   
-<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
-<script src="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.1.3/js/bootstrap.bundle.min.js"></script>
+  function showElement(id) {
+    document.getElementById(id).classList.remove('hidden');
+  }
+  
+  function hideElement(id) {
+    document.getElementById(id).classList.add('hidden');
+  }
+</script>  
 </body>
 </html>
