@@ -2,13 +2,288 @@
 <html>
 <head>
   <title>Bill and Installment Reminders</title>
+
+
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.1.3/css/bootstrap.min.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/ionicons/2.0.1/css/ionicons.min.css">
+  <link rel="stylesheet" href="assets/css/style.css">
+  
   <style>
     body {
       font-family: Arial, sans-serif;
-      background-image: linear-gradient(to left, #e28db7, #ebe1fc);
-      margin: 20px;
+      background: linear-gradient(to left,#e28bb5,#deccfc);
+      
+    }
+    .footer {
+      background-color: #333;
+      color: white;
+      text-align: center;
+      padding: 20px 0;
     }
     
+    .footer a {
+      color: white;
+      text-decoration: none;
+      margin: 0 10px;
+    }
+    .footer-clean {
+  padding:50px 0;
+  background-color: #67a381;
+  color:white;
+  
+  bottom: 0;
+  width: 100%;
+}
+
+.footer-clean h3 {
+  margin-top:0;
+  margin-bottom:12px;
+  font-weight:bold;
+  font-size:16px;
+}
+
+.footer-clean ul {
+  padding:0;
+  list-style:none;
+  line-height:1.6;
+  font-size:14px;
+  margin-bottom:0;
+}
+
+.footer-clean ul a {
+  color:inherit;
+  text-decoration:none;
+  opacity:0.8;
+}
+
+.footer-clean ul a:hover {
+  opacity:1;
+}
+
+.footer-clean .item.social {
+  text-align:right;
+}
+
+@media (max-width:767px) {
+  .footer-clean .item {
+    text-align:center;
+    padding-bottom:20px;
+  }
+}
+
+@media (max-width: 768px) {
+  .footer-clean .item.social {
+    text-align:center;
+  }
+}
+
+.footer-clean .item.social > a {
+  font-size:24px;
+  width:40px;
+  height:40px;
+  line-height:40px;
+  display:inline-block;
+  text-align:center;
+  border-radius:50%;
+  border:1px solid #ccc;
+  margin-left:10px;
+  margin-top:22px;
+  color:inherit;
+  opacity:0.75;
+}
+
+.footer-clean .item.social > a:hover {
+  opacity:0.9;
+}
+
+@media (max-width:991px) {
+  .footer-clean .item.social > a {
+    margin-top:40px;
+  }
+}
+
+@media (max-width:767px) {
+  .footer-clean .item.social > a {
+    margin-top:10px;
+  }
+}
+
+.footer-clean .copyright {
+  margin-top:14px;
+  margin-bottom:0;
+  font-size:13px;
+  opacity:0.6;
+}
+    .menu-bar {
+    height: 50px;
+
+  
+  width: 100%;
+  display: flex;
+  /* position: fixed; */
+  background-color: #67a381;
+  -webkit-backdrop-filter: blur(10px);
+  backdrop-filter: blur(10px);
+  align-items: center;
+ 
+  margin: 0;
+  justify-content: center;
+  left: 50%;
+  top: -100px;
+}
+.menu-bar li {
+  list-style: none;
+  color: white;
+  font-family: sans-serif;
+  font-weight: bold;
+  padding: 12px 16px;
+  margin: 0 8px;
+  position: relative;
+  cursor: pointer;
+  white-space: nowrap;
+}
+.menu-bar li::before {
+  content: " ";
+  position: absolute;
+  top: 0;
+  left: 0;
+  height: 100%;
+  width: 100%;
+  z-index: -1;
+  transition: 0.2s;
+  border-radius: 25px;
+}
+.menu-bar li:hover {
+  color: white;
+}
+.menu-bar li:hover::before {
+  background:black;
+  box-shadow: 0px 3px 20px 0px black;
+  transform: scale(1.2);
+} a{
+      color: white;
+      text-decoration: none;
+    }
+    a:hover{
+      text-decoration: none;
+      color: inherit;
+    }
+    .logo{
+        left: 530px;
+        top: -25px;
+        position: fixed;
+    }
+    .notifications {
+        position: fixed;
+      top: 15px;
+      right: 20px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      width: 30px;
+      height: 30px;
+      background-color : transparent;
+      color: #fff;
+      border-radius: 50%;
+      cursor: pointer;
+    }
+    
+    .badge {
+      position: absolute;
+      top: -5px;
+      right: -3px;
+      background-color: red;
+      color: #fff;
+      width: 15px;
+      height: 15px;
+      border-radius: 50%;
+      text-align: center;
+      line-height: 10px;
+      font-size: 10px;
+    }
+    
+    .dropdown {
+      position: absolute;
+      top: 30px;
+      right: 0;
+      width: 600px;
+      background-color: #67a381;
+      border: 1px solid #ddd;
+      border-radius: 4px;
+      display: none;
+      z-index: 1;
+    }
+    
+    .dropdown a {
+      color: white;
+      padding: 12px 16px;
+      text-decoration: none;
+      display: block;
+    }
+    
+     .dropdown a:hover {
+      background-color: black;
+      box-shadow: 0px 3px 20px 0px black;
+  transform: scale(1.0);
+    }
+    
+    .notifications:hover .dropdown {
+      display: block;
+    } 
+    .navbar {
+      position: fixed;
+      top: 0;
+      left: -250px; /* Initially hidden off the screen */
+      width: 250px;
+      height: fit-content;
+      background-color:#67a381;
+      color: #fff;
+      transition: left 0.3s ease;
+    }
+    
+    .navbar.open {
+      left: 0; /* Slides in from the left when open class is applied */
+    }
+    
+    .navbar ul {
+      list-style-type: none;
+      margin: 0;
+      padding: 0;
+      overflow: hidden;
+    }
+    
+    .navbar li {
+      text-align: left;
+    }
+    
+    .navbar li a {
+      display: block;
+      color: white;
+      padding: 14px 16px;
+      text-decoration: none;
+    }
+    
+    .navbar li a:hover {
+      background-color: #111;
+      box-shadow: 0px 3px 20px 0px black;
+  transform: scale(1.0);
+
+    }
+    .openbtn {
+      width: fit-content;
+    position: fixed;
+      top: 3px;
+      left: 10px;
+      background-color: transparent;
+      color: #111;
+      padding: 10px 15px;
+      font-size: 20px;
+      border: none;
+      cursor: pointer;
+     
+    }
+  
+ 
     h1 {
       color: #333;
       text-align: center;
@@ -22,7 +297,7 @@
     
     li {
       margin-bottom: 10px;
-      border: 1px solid #ccc;
+      
       padding: 10px;
       border-radius: 4px;
     }
@@ -92,6 +367,48 @@
   </script>
 </head>
 <body>
+
+
+  <ul class="menu-bar">
+    <div class="logo">
+        <a href="Client_home.html">
+        <img src="img/logo.png" style="width: 150px; height:100px; ">
+    </a>
+    </div>
+    <div class="notifications" id="notifications" >
+        <span class="badge">4</span>
+        <img src="img/bell.png" alt="Notification Bell" style="width: 35px; height: 30px" >
+        <div class="dropdown" id="dropdown">
+          <a href="#">A debit transaction of $100.00 has been made from your account on May 15, 2023. Please review the transaction details and contact us if you notice any unauthorized activity.</a>
+          <a href="#">  This is a reminder that your bill payment of $75.00 for your electricity bill is due on May 30, 2023. Please ensure that you have sufficient funds in your account to cover the payment by the due date.</a>
+          <a href="#"> We are pleased to inform you that the issue you reported regarding your credit card loss has been resolved and we accepted your request of issuing a new card. check your credit card section to view.</a>
+          <a href="#">We would like to inform you that our online banking system will be undergoing scheduled maintenance on June 15, 2023, from 10:00 PM to 2:00 AM (UTC). During this time, you may experience temporary unavailability of our online banking services. We apologize for any inconvenience caused and appreciate your understanding.</a>
+        </div>
+      </div>
+    <li></li>
+    <button id="openbtn" class="openbtn" onclick="toggleNavbar()">&#9776; </button>
+    <div id="navbar" class="navbar">
+      <ul>       
+        <li><a href="apply_credit.html">Apply For Credit Card</a></li>
+      <li><a href="credit_card.html">My Credit Card</a></li>
+  
+      <li><a href="apply_loan.html"> Apply For Loan</a></li>
+      <li><a href="myLoan.html"> View Loan</a></li>
+  
+      <li><a href="bank_acc.html">Bank Account</a></li>
+     
+      <li><a href="services.html">Services</a></li>
+      <li><a href="send_money.html">Transfer </a></li>
+      <li><a href="report.html">Report Issue</a></li>
+      <li><a href="client_card_replacement.html">Request Credit Card<br> Replacement</a></li>
+      <li><a href="transactions.html">View Transactions</a></li>
+  
+      <li><a href="reminders.html">Set Reminders</a></li>
+  
+      </ul>
+    </div>
+  </ul>
+
   <h1>Bills and Installments Reminders</h1>
   
   <ul>
@@ -208,6 +525,65 @@
       </li>
     </li>
   </ul>
+
+
+</script>
+  
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.1.3/js/bootstrap.bundle.min.js"></script>
+
+
+<script>
+  document.addEventListener('click', function(event) {
+    var navbar = document.getElementById('navbar');
+    var openbtn = document.getElementById('openbtn');
+    
+    if (!navbar.contains(event.target) && event.target !== openbtn) {
+      navbar.classList.remove('open');
+    }
+  });
+  function toggleNavbar() {
+    var navbar = document.getElementById('navbar');
+    navbar.classList.toggle('open');
+  }
+  </script>
+
+<div class="footer-clean">
+  <footer>
+      <div class="container1">
+          <div class="row justify-content-center">
+              <div class="col-sm-4 col-md-3 item">
+                  <h3>Services</h3>
+                  <ul>
+                      <li><a href="#">Web design</a></li>
+                      <li><a href="#">Development</a></li>
+                      <li><a href="#">Hosting</a></li>
+                  </ul>
+              </div>
+              <div class="col-sm-4 col-md-3 item">
+                  <h3>About</h3>
+                  <ul>
+                      <li><a href="#">Company</a></li>
+                      <li><a href="#">Team</a></li>
+                      <li><a href="#">Legacy</a></li>
+                  </ul>
+              </div>
+              <div class="col-sm-4 col-md-3 item">
+                  <h3>Careers</h3>
+                  <ul>
+                      <li><a href="#">Job openings</a></li>
+                      <li><a href="#">Employee success</a></li>
+                      <li><a href="#">Benefits</a></li>
+                  </ul>
+              </div>
+              <div class="col-lg-3 item social"><a href="#"><i class="icon ion-social-facebook"></i></a><a href="#"><i class="icon ion-social-twitter"></i></a><a href="#"><i class="icon ion-social-snapchat"></i></a><a href="#"><i class="icon ion-social-instagram"></i></a>
+                  <p class="copyright">Company Name © 2018</p>
+              </div>
+          </div>
+      </div>
+  </footer>
+</div>
+
 
 </body>
 </html>
