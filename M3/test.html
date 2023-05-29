@@ -630,12 +630,31 @@
     tbody td {
       padding-bottom: 10px;
     }
-  
+    .back-arrow {
+      display: flex;
+      width: 50px;
+      height: 50px;
+      position:fixed;
+      border-radius: 50%;
+      text-align: center;
+      cursor: pointer;
+      margin-top: -55px;
+      margin-left: -1400px;
+      color: black;
+    }
+
+    .back-arrow:before {
+      content: '\2190'; /* Unicode character for left arrow */
+      font-size: 40px;
+      line-height: 100px;
+      color: black;
+    }
   </style>
 </head>
 <body>
 
     <ul class="menu-bar">
+      <div class="back-arrow" onclick="goBack()"></div>
         <div class="logo">
             <a href="Banker_home.html">
             <img src="img/logo.png" style="width: 150px; height:100px; margin-left: 40px;">
@@ -714,6 +733,11 @@
     function deny(id){
         alert('Transaction is denied');
         document.getElementById(id).remove();
+    }
+  </script>
+  <script>
+    function goBack() {
+      window.history.back();
     }
   </script>
 
