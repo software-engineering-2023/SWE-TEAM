@@ -169,7 +169,7 @@
       color: inherit;
     }
     .logo{
-        left: 530px;
+        left: 630px;
         top: -25px;
         position: fixed;
     }
@@ -288,6 +288,7 @@
     h1 {
       color: #333;
       text-align: center;
+      margin-top: 20px;
       margin-bottom: 20px;
     }
     
@@ -343,6 +344,11 @@
     button:active{
         background-color: black;
     }
+    .container{
+   
+      margin-bottom: 200px;
+    }
+
   </style>
   <script>
     function showAlert() {
@@ -394,7 +400,7 @@
 
 
   <h1>Credit Card Replacement</h1>
-  
+  <div class="container">
   <form onsubmit="showAlert()">
     <label for="name">Name:</label>
     <input type="text" id="name" name="name" required>
@@ -418,7 +424,7 @@
     
     <button type="submit">Submit</button>
   </form>
-
+  </div>
 </script>
   
 <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
